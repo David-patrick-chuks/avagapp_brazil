@@ -1,0 +1,116 @@
+import React, { useState } from 'react'
+
+import { useDrop } from 'react-dnd';
+import { useDrag } from 'react-dnd';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+function DragnDrop() {
+
+
+
+
+
+    const options = [
+        { id: 1, label: 'Opção 1', icon: '/student/dragg1.png' },
+        { id: 2, label: 'Opção 2', icon: '/student/dragg2.png' },
+        { id: 3, label: 'Opção 3', icon: '/student/dragg3.png' },
+        { id: 4, label: 'Opção 4', icon: '/student/dragg4.png' },
+    ];
+
+    const GameBoard = () => {
+        const [selectedOption, setSelectedOption] = useState(null);
+
+        const handleDrop = (option) => {
+            setSelectedOption(option);
+        };
+
+        return (
+            <div className=" flex  flex-col justify-between items-center gap-10 lg:gap-20 ">
+                <AnswerBox onDrop={handleDrop} option={selectedOption} />
+                <div className="lg:flex grid grid-cols-2 justify-between gap-5">
+                    {options.map((option) => (
+                        <DraggableOption key={option.id} option={option} />
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+
+
+
+    const AnswerBox = ({ onDrop, option }) => {
+        const [{ isOver }, drop] = useDrop({
+            accept: 'option',
+            drop: (item) => onDrop(item),
+            collect: (monitor) => ({
+                isOver: !!monitor.isOver(),
+            }),
+        });
+
+        return (
+            <div ref={drop} className={`answer-box ${isOver ? 'hover' : ''} size-36 lg:size-52`}>
+                {option ? (
+                    <div >
+                        <img src={option.icon} className='lg:size-52' alt="" />
+                    </div>
+                ) : (
+                    <p className='font-semibold text-xl lg:text-3xl text-center'>Drag Your Answer
+                    </p>
+                )}
+            </div>
+        );
+    };
+
+    const DraggableOption = ({ option }) => {
+        const [{ isDragging }, drag] = useDrag({
+            type: 'option',
+            item: option,
+            collect: (monitor) => ({
+                isDragging: !!monitor.isDragging(),
+            }),
+        });
+
+        return (
+            <div
+                ref={drag}
+                className={` ${isDragging ? 'dragging' : ''}  `}
+            >
+                <img src={option.icon} className='lg:size-52' alt="" />
+
+            </div>
+        );
+    };
+
+
+
+    return (
+        <DndProvider backend={HTML5Backend}>
+            <div className='p-3 flex flex-col gap-2'>
+
+                <div className='  flex gap-5 p-2 lg:justify-start justify-between items-center text-white'>
+                    <p className='font-bold text-[16px] lg:text-[20px] text-black'>Play and Win <img src="/student/bulb.png" className='inline-block my-auto' alt="" /></p>
+
+                    <p className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Total Score: 100</p>
+                </div>
+                <img src="/student/progress.png" alt="" />
+
+
+                <div className="flex flex-col gap-5">
+                    <p className='font-semibold text-2xl'>Question No:1</p>
+                    <div className='flex flex-col gap-10 p-10'>
+                        <h2>Which Option Best __________ Clyde's Activity Level?</h2>
+                        <GameBoard />
+                        <div className='flex -mt-5 w-full justify-end'>
+                            <p className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark text-white'>Next
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </DndProvider>
+    )
+}
+
+export default DragnDrop

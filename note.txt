@@ -1,0 +1,47 @@
+import { MdHome } from "react-icons/md";
+<MdHome />
+import { FaUserAlt } from "react-icons/fa";
+<FaUserAlt />
+
+import { GiTeacher } from "react-icons/gi";
+<GiTeacher />
+import { LiaChalkboardTeacherSolid } from "react-icons/lia";
+<LiaChalkboardTeacherSolid />
+
+import { RiAiGenerate } from "react-icons/ri";
+<RiAiGenerate />
+import { LiaClipboardListSolid } from "react-icons/lia";
+<LiaClipboardListSolid />
+import { FaBook } from "react-icons/fa6";
+<FaBook />
+import { IoGameController } from "react-icons/io5";
+<IoGameController />
+import { AiFillSetting } from "react-icons/ai";
+<AiFillSetting />
+import { IoLogOut } from "react-icons/io5";
+<IoLogOut />
+
+import { IoChevronDownOutline } from "react-icons/io5";
+<IoChevronDownOutline />
+import { FaRegBell } from "react-icons/fa";
+<FaRegBell />
+import { IoTriangle } from "react-icons/io5";
+<IoTriangle />
+
+import { BsFillTrashFill } from "react-icons/bs";
+<BsFillTrashFill />
+
+import { GoPencil } from "react-icons/go";
+<GoPencil />
+import { IoEyeOutline } from "react-icons/io5";
+<IoEyeOutline />
+
+
+import { MdOutlineFileUpload } from "react-icons/md";
+<MdOutlineFileUpload />
+
+import { FiSearch } from "react-icons/fi";
+<FiSearch />
+
+import { BsThreeDotsVertical } from "react-icons/bs";
+<BsThreeDotsVertical />
