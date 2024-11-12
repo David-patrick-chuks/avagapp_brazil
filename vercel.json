@@ -4,6 +4,9 @@
         "source": "/(.*)",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "build": {
+        "ignoreCommand": "exit 0"
+      }
   }
   
