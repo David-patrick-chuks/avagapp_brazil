@@ -65,7 +65,7 @@ export default function SSideBar() {
         {
             label: "Logout",
             inActive: <IoLogOut />,
-            path: "/student",
+            path: "/",
         },
     ];
 

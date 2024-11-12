@@ -68,7 +68,7 @@ export default function TSideBar() {
     {
       label: "Logout",
       inActive: <IoLogOut />,
-      path: "/teacher/signup",
+      path: "/",
     },
   ];
   const { toggleMobile, mobile } = useMobile()

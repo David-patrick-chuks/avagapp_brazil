@@ -100,8 +100,8 @@ function App() {
 /// teacher routes ///
 
         <Route path='/teacher' >
-          <Route index element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+          <Route index element={<Signup />} />
+          <Route  path="signup" element={<Login />} />
           <Route path="forgot-password" element={<Forgotpassword />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="verify-otp" element={<Otp />} />

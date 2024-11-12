@@ -58,7 +58,7 @@ export default function ASideBar() {
     {
       label: "Logout",
       inActive: <IoLogOut />,
-      path: "/admin",
+      path: "/",
     },
   ];
   

@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { BsEyeFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { sucessNotify } from '../../../helper/ToastLogin';
 
+import ReCAPTCHA from 'react-google-recaptcha';
 export default function AdminLogin() {
+
+    const [captchaValue, setCaptchaValue] = useState(null);
+
+    const siteKey = "6Lf4inwqAAAAAD64ITgkHFsgBPk_qvE52l2_6ltd"
 
     const [viewPassword, setViewPassword] = useState(false)
 
@@ -12,6 +17,21 @@ export default function AdminLogin() {
         setViewPassword(prev => !prev)
 
     }
+    const navigate = useNavigate()
+
+    const handleCaptchaChange = (value) => {
+        console.log('Captcha value:', value);
+        setCaptchaValue(value);
+    };
+
+    const handleSubmit = () => {
+        if (!captchaValue) {
+            // alert('Captcha verified, form can be submitted!');
+            return alert('Please complete the reCAPTCHA');
+        }
+        sucessNotify()
+        navigate("/admin/dashboard")
+    };
     return (
         <div className='flex overflow-hidden bg-white h-screen w-full'>
             <div className=' h-full w-[25.5%] lg:block hidden relative'>
@@ -38,11 +58,15 @@ export default function AdminLogin() {
                             }
                         </p>
                     </label>
-                    <Link to={"dashboard"} onClick={sucessNotify} className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3'>
+                    <ReCAPTCHA
+                        sitekey={siteKey}
+                        onChange={handleCaptchaChange}
+                    />
+                    <p onClick={handleSubmit} className='bg-main-dark w-[100%] cursor-pointer rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3'>
                         Sign In
-                    </Link>
+                    </p>
                 </div>
-        
+
             </div>
         </div>
     )
