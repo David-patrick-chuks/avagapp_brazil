@@ -1,3 +1,4 @@
+import { useMobile } from "../../../hook/MobileNav";
 import { AiFillSetting } from "react-icons/ai";
 import { FaBookOpen, FaUserAlt } from "react-icons/fa";
 import { ImBook } from "react-icons/im";
@@ -6,7 +7,6 @@ import { LiaClipboardListSolid } from "react-icons/lia";
 import { MdHome } from "react-icons/md";
 import { PiClockFill } from "react-icons/pi";
 import { NavLink, useLocation } from "react-router-dom";
-import { useMobile } from "../../../hook/MobileNav";
 
 export default function SSideBar() {
 
@@ -55,6 +55,16 @@ export default function SSideBar() {
             path: "/student/dashboard/student-game",
         },
     ];
+
+
+
+
+
+
+
+
+
+
 
     const config = [
         {
