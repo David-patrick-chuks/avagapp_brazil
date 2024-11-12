@@ -11,6 +11,19 @@ import { TABLE_HEAD5, TABLE_ROWS } from "../../../../helper/data";
 
 function AdminRanking() {
 
+
+  const [Data, setData] = useState(TABLE_ROWS)
+  const ITEMS_PER_PAGE = 9;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(Data.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentData = Data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  
+  const deleteData = (id) => {
+      const dataf = Data.filter((row, index) => index !== id)
+      setData(dataf)
+  }
   const [identifier, setIdentifier] = useState(null)
 
 
@@ -69,20 +82,20 @@ function AdminRanking() {
             </tr>
           </thead>
           <tbody>
-            {TABLE_ROWS.map(({ value, date, name, pun, img, medal, desemp }, index) => {
-              const isLast = index === TABLE_ROWS.length - 1;
-              const classes = isLast ? "py-4 p-3 " : "py-4 border-b p-3 border-gray-300 ";
-
-              return (
-                <tr key={index} className="hover:bg-gray-50">
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      className="font-normal text-gray-600"
-                    >
-                      {value}
-                    </Typography>
-                  </td>
+            {currentData.map(({ value, date, name, pun, img, medal, desemp }, index) => {
+                          const isLast = index === currentData.length - 1;
+                          const classes = isLast ? "py-4  p-3 " : "py-4 p-3 border-b  border-gray-300 ";
+            
+                          return (
+                            <tr key={index} className="hover:bg-gray-50">
+                              <td className={classes}>
+                                <Typography
+                                  variant="small"
+                                  className="font-normal text-gray-600"
+                                >
+                                  {startIndex + index + 1}
+                                </Typography>
+                              </td>
                   <td className={classes}>
                     <div className="flex items-center gap-3">
                       <Avatar src={img} alt={name} size="sm" />
@@ -145,7 +158,7 @@ function AdminRanking() {
                         <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                           <GoPencil />
                         </ListItemPrefix>Edit</ListItem>
-                        <ListItem className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
+                        <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                           <BsFillTrashFill />
                         </ListItemPrefix>Delete</ListItem>
                       </List>

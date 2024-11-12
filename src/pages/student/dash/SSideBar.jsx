@@ -28,7 +28,7 @@ export default function SSideBar() {
             path: "/student/dashboard/class-overview",
         },
         {
-            label: "Knowledge",
+            label: "Knowledge Trail",
             inActive: <ImBook />,
             path: "/student/dashboard/student-knowledge",
         },

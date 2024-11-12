@@ -38,6 +38,7 @@ import { Toaster } from 'react-hot-toast'
 import StudentProfile from './pages/student/dash/StudentProfile'
 import StudentGame from './pages/student/dash/StudentGame'
 import StudentGameDetails from './pages/student/dash/StudentGameDetails'
+import ClassDetails from './pages/student/dash/ClassDetails'
 
 function App() {
   return (
@@ -55,7 +56,7 @@ function App() {
           <Route path="dashboard" element={<StudentLayout />} >
             <Route index element={<SHome />} />
             <Route path="class-overview" element={<ClassOverView />} />
-            <Route path="class-overview/details" element={<ClassOverViewDetails />} />
+            <Route path="class-overview/:id" element={<ClassDetails />} />
             <Route path="student-knowledge" element={<StudentKnowledge />} />
             <Route path="student-knowledge/details" element={<ClassOverViewDetails />} />
 
@@ -117,6 +118,7 @@ function App() {
             <Route path="game/:gameType" element={<GameDetails />} />
             <Route path="game/:gameType/:gameCreate" element={<GameCreate />} />
             <Route path="setting" element={<TSetting />} />
+            <Route path="knowledge/Know-details" element={<ClassOverViewDetails />} />
           </Route>
         </Route>
 

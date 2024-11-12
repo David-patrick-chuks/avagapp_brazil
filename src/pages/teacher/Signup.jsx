@@ -1,10 +1,16 @@
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { BsEyeFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Signup() {
+
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const siteKey = "6Lf4inwqAAAAAD64ITgkHFsgBPk_qvE52l2_6ltd"
+  const secretKey ="6Lf4inwqAAAAACLQveh2eqLINKezTpkXVehNIXra"
 
   const [viewPassword, setViewPassword] = useState(false)
 
@@ -12,8 +18,21 @@ const togglePassword =() => {
   setViewPassword(prev =>  !prev)
 
 }
+const navigate = useNavigate()
 
+const handleCaptchaChange = (value) => {
+  console.log('Captcha value:', value);
+  setCaptchaValue(value);
+};
 
+const handleSubmit = () => {
+  if (!captchaValue) {
+      // alert('Captcha verified, form can be submitted!');
+     return alert('Please complete the reCAPTCHA');
+    } 
+    
+    navigate("/teacher/forgot-password")
+};
 
   return (
     <div className='flex overflow-hidden bg-white h-screen w-full'>
@@ -45,9 +64,13 @@ const togglePassword =() => {
                             }
             </p>
           </label>
-          <Link to={"/teacher/forgot-password"} className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3'>
+          <ReCAPTCHA
+          sitekey={siteKey}
+          onChange={handleCaptchaChange}
+        />
+          <p onClick={handleSubmit} className='bg-main-dark w-[100%] cursor-pointer rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3'>
             Sign Up
-          </Link>
+          </p>
         </div>
         <p className='w-full cursor-pointer mt-1 text-center'>
         Already have an account ? <Link to={"/teacher"}  className='text-main-dark'>Sign In</Link>

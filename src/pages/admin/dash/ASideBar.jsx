@@ -28,7 +28,7 @@ export default function ASideBar() {
       path: "/admin/dashboard/register-teacher",
     },
     {
-      label: "Teacher Management",
+      label: "User Management",
       inActive: <FaUserAlt />,
       path: "/admin/dashboard/teacher-management",
     },

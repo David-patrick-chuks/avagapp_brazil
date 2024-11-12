@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, CardFooter, IconButton, List, ListItem, ListItemPrefix, Typography } from "@material-tailwind/react";
+import { Avatar, Button, Card, CardFooter, Checkbox, IconButton, List, ListItem, ListItemPrefix, Typography } from "@material-tailwind/react";
 import React, { useState } from 'react';
 import { BsFillTrashFill, BsThreeDotsVertical } from 'react-icons/bs';
 
@@ -9,12 +9,47 @@ import { RiAiGenerate } from "react-icons/ri";
 import { TABLE_HEAD4, TABLE_ROWS } from "../../../../helper/data";
 function Generate() {
 
+    const [check, setCheck] = useState(false)
+    const [Data, setData] = useState(TABLE_ROWS)
+    const ITEMS_PER_PAGE = 9;
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil(Data.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentData = Data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+
+    const deleteData = (id) => {
+        const dataf = Data.filter((row, index) => index !== id)
+        setData(dataf)
+    }
     const [open, setOpen] = useState(false);
+    const [select, setSelect] = useState(false);
+    const [selectId, setSelectId] = useState([]);
 
     const handleOpen = () => {
-
         setOpen(!open)
     }
+    const handleGenerate = () => {
+        setOpen(false)
+        setCheck(prev => !prev)
+
+        if (selectId.length > 0) {
+            setOpen(!open)
+            setSelect(prev => !prev)
+            setSelectId([])
+        }
+        // if (select) {
+        //     setOpen(!open)
+        //     setSelect(prev  => !prev)
+
+        // }
+
+    }
+
+    const addSelected = (select) => {
+        setSelectId(prev => [...prev, select])
+    }
+
 
     const [identifier, setIdentifier] = useState(null)
 
@@ -31,12 +66,14 @@ function Generate() {
 
     }
 
+
+
     return (
         <div className='flex pt-5 px-3 flex-col gap-4'>
             <div className='flex justify-between p-2 items-center text-white'>
                 <p className='font-bold lg:text-[28px] w-full  text-black'>Certificate Generation</p>
 
-                <p onClick={handleOpen} className='flex text-sm justify-center w-full lg:w-[15%] cursor-pointer p-2 lg:p-[10px] items-center rounded-2xl gap-2 bg-main-dark'><RiAiGenerate /> Generate all</p>
+                <p onClick={handleGenerate} className='flex text-sm justify-center w-full lg:w-[15%] cursor-pointer p-2 lg:p-[10px] items-center rounded-2xl gap-2 bg-main-dark'><RiAiGenerate /> Generate all</p>
             </div>
 
             <Dialog
@@ -52,13 +89,13 @@ function Generate() {
                 <div className='2xl:p-[30px]  justify-center items-center font-num w-[100%]  p-4 lg:p-5 flex flex-col gap-[18px] rounded-xl 2xl:rounded-3xl  bg-main-light'>
                     <img src="/teacher/pdf.png" className="w-[50%]" />
 
-                    <div className="w-full flex flex-col items-center jusc'">
+                    <div className="w-full flex flex-col items-center justify-center'">
                         <p className="text-main-dark font-semibold text-2xl">Congratulations</p>
-                        <p>Congratulation Your Certification Generate Successfully</p>
+                        <p className="text-center">Congratulation Your Certification Generate Successfully</p>
                     </div>
 
                     <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
-                    Export as PDF
+                        Export as PDF
                     </p>
                 </div>
 
@@ -83,10 +120,10 @@ function Generate() {
                         </tr>
                     </thead>
                     <tbody>
-                        {TABLE_ROWS.map(({ value, Turma, name, pun, img, medal, desemp }, index) => {
-                            const isLast = index === TABLE_ROWS.length - 1;
+                        {currentData.map(({ value, Turma, name, pun, img, medal, desemp }, index) => {
+                            const isLast = index === currentData.length - 1;
                             const classes = isLast ? "py-4  p-3 " : "py-4 p-3 border-b  border-gray-300 ";
-
+                            const valueId = startIndex + index + 1
                             return (
                                 <tr key={index} className="hover:bg-gray-50">
                                     <td className={classes}>
@@ -94,7 +131,10 @@ function Generate() {
                                             variant="small"
                                             className="font-normal text-gray-600"
                                         >
-                                            {value}
+                                            {
+                                                check && <Checkbox onClick={() => addSelected(valueId)} />
+                                            }
+                                            {startIndex + index + 1}
                                         </Typography>
                                     </td>
                                     <td className={classes}>
@@ -142,7 +182,7 @@ function Generate() {
                                             <BsThreeDotsVertical className=" rotate-90 h-4 w-4" />
                                         </IconButton>
                                         <Card onClick={() => toogleEdit(index)} className={` ${identifier === index ? "block" : "hidden"} top-0 -right-5 absolute w-[135px]`}>
-                                            <List className="w-[120px] text-xs "> <ListItem className="text-xs w-[120px]  ">
+                                            <List className="w-[120px] text-xs "> <ListItem onClick={handleOpen} className="text-xs w-[120px]  ">
                                                 <ListItemPrefix >
                                                     <RiAiGenerate />
                                                 </ListItemPrefix>
@@ -150,7 +190,7 @@ function Generate() {
 
                                             </ListItem >
 
-                                                <ListItem className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
+                                                <ListItem onClick={() => deleteData(index)} className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
                                                 </ListItemPrefix>Delete</ListItem>
                                             </List>
@@ -162,21 +202,31 @@ function Generate() {
                         })}
                     </tbody>
                 </table>
-           
+
             </Card>
             <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
-          <Typography variant="small" color="blue-gray" className="font-normal">
-            Page 1 of 10
-          </Typography>
-          <div className="flex gap-2">
-            <Button variant="outlined" size="sm">
-              Prev
-            </Button>
-            <Button variant="outlined" size="sm">
-              Next
-            </Button>
-          </div>
-        </CardFooter>
+                <Typography variant="small" color="blue-gray" className="font-normal">
+                    Page {currentPage} of {totalPages}
+                </Typography>
+                <div className="flex gap-2">
+                    <Button
+                        variant="outlined"
+                        size="sm"
+                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        Prev
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        size="sm"
+                        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </CardFooter>
         </div>
     )
 }

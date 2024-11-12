@@ -11,6 +11,19 @@ import { TABLE_HEAD5, TABLE_ROWS } from "../../../../helper/data";
 
 function Ranking() {
 
+  const [Data, setData] = useState(TABLE_ROWS)
+    const ITEMS_PER_PAGE = 9;
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil(Data.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentData = Data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  
+    
+    const deleteData = (id) => {
+        const dataf = Data.filter((row, index) => index !== id)
+        setData(dataf)
+    }
+
   const [identifier, setIdentifier] = useState(null)
 
 
@@ -69,8 +82,8 @@ function Ranking() {
             </tr>
           </thead>
           <tbody>
-            {TABLE_ROWS.map(({ value, date, name, pun, img, medal, desemp }, index) => {
-              const isLast = index === TABLE_ROWS.length - 1;
+            {currentData.map(({ value, date, name, pun, img, medal, desemp }, index) => {
+              const isLast = index === currentData.length - 1;
               const classes = isLast ? "py-4  p-3 " : "py-4 p-3 border-b  border-gray-300 ";
 
               return (
@@ -80,7 +93,7 @@ function Ranking() {
                       variant="small"
                       className="font-normal text-gray-600"
                     >
-                      {value}
+                      {startIndex + index + 1}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -145,7 +158,7 @@ function Ranking() {
                         <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                           <GoPencil />
                         </ListItemPrefix>Edit</ListItem>
-                        <ListItem className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
+                        <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                           <BsFillTrashFill />
                         </ListItemPrefix>Delete</ListItem>
                       </List>
@@ -160,18 +173,28 @@ function Ranking() {
       
       </Card>
       <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
-          <Typography variant="small" color="blue-gray" className="font-normal">
-            Page 1 of 10
-          </Typography>
-          <div className="flex gap-2">
-            <Button variant="outlined" size="sm">
-              Prev
-            </Button>
-            <Button variant="outlined" size="sm">
-              Next
-            </Button>
-          </div>
-        </CardFooter>
+        <Typography variant="small" color="blue-gray" className="font-normal">
+          Page {currentPage} of {totalPages}
+        </Typography>
+        <div className="flex gap-2">
+          <Button
+            variant="outlined"
+            size="sm"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </Button>
+          <Button
+            variant="outlined"
+            size="sm"
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </Button>
+        </div>
+      </CardFooter>
     </div>
   )
 }

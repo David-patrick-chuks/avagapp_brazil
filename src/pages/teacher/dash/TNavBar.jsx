@@ -4,8 +4,17 @@ import { FaRegBell } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { useMobile } from "../../../hook/MobileNav";
+import { Link, useLocation } from "react-router-dom";
 
 export function TNavBar() {
+
+
+  const location = useLocation()
+
+  const pathSegments = location.pathname.split('/');
+  const check = location.pathname.includes("/student/dashboard")
+  // console.log("Checking if route matches teacher route", check);
+  
 
   const {toggleMobile} =useMobile()
     const [bell, setBell] =useState(false)
@@ -38,11 +47,11 @@ export function TNavBar() {
            
           </p>
          
-          <div className="text-black/50  text-sm gap-1 flex justify-center items-center">
+          <Link to={ check && "student-profile"} className="text-black/50  text-sm gap-1 flex justify-center items-center">
             <img src="/teacher/doc.png" className="size-6" />
             <p>Musfiq</p>
             <IoChevronDownOutline />
-          </div>
+          </Link>
         </div>
       </div>
     );

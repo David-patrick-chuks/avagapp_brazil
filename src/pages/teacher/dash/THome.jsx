@@ -9,7 +9,19 @@ export default function THome() {
     const [identifier, setIdentifier] = useState(null)
 
 
-
+ const [Data, setData] = useState(TABLE_ROWS)
+    const ITEMS_PER_PAGE = 9;
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil(Data.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentData = Data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  
+    
+    const deleteData = (id) => {
+        const dataf = Data.filter((row, index) => index !== id)
+        setData(dataf)
+    }
+    
     const toogleEdit = (id) => {
       if (identifier === id) {
         setIdentifier(null)
@@ -68,20 +80,20 @@ export default function THome() {
                         </tr>
                     </thead>
                     <tbody>
-                        {TABLE_ROWS.map(({ value, activity, name, date, img, email, status }, index) => {
-                            const isLast = index === TABLE_ROWS.length - 1;
-                            const classes = isLast ? "py-4 p-3" : "py-4 border-b p-3 border-gray-300";
-
-                            return (
-                                <tr key={index} className="hover:bg-gray-50">
-                                    <td className={classes}>
-                                        <Typography
-                                            variant="small"
-                                            className="font-normal text-gray-600"
-                                        >
-                                            {value}
-                                        </Typography>
-                                    </td>
+                        {currentData.map(({ value, activity, name, date, img, email, status }, index) => {
+                                         const isLast = index === currentData.length - 1;
+                                         const classes = isLast ? "py-4  p-3 " : "py-4 p-3 border-b  border-gray-300 ";
+                           
+                                         return (
+                                           <tr key={index} className="hover:bg-gray-50">
+                                             <td className={classes}>
+                                               <Typography
+                                                 variant="small"
+                                                 className="font-normal text-gray-600"
+                                               >
+                                                 {startIndex + index + 1}
+                                               </Typography>
+                                             </td>
                                     <td className={classes}>
                                         <div className="flex items-center gap-3">
                                             <Avatar src={img} alt={name} size="sm" />
@@ -144,7 +156,7 @@ export default function THome() {
                                                 <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                                                     <GoPencil />
                                                 </ListItemPrefix>Edit</ListItem>
-                                                <ListItem className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
+                                                <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
                                                 </ListItemPrefix>Delete</ListItem>
                                             </List>
@@ -158,19 +170,29 @@ export default function THome() {
                 </table>
               
             </Card>
-            <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
-          <Typography variant="small" color="blue-gray" className="font-normal">
-            Page 1 of 10
-          </Typography>
-          <div className="flex gap-2">
-            <Button variant="outlined" size="sm">
-              Prev
-            </Button>
-            <Button variant="outlined" size="sm">
-              Next
-            </Button>
-          </div>
-        </CardFooter>
+  <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
+        <Typography variant="small" color="blue-gray" className="font-normal">
+          Page {currentPage} of {totalPages}
+        </Typography>
+        <div className="flex gap-2">
+          <Button
+            variant="outlined"
+            size="sm"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </Button>
+          <Button
+            variant="outlined"
+            size="sm"
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </Button>
+        </div>
+      </CardFooter>
         </div>
     )
 }

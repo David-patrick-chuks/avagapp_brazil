@@ -7,6 +7,18 @@ import { IoEyeOutline } from 'react-icons/io5';
 import { TABLE_HEAD_ADMIN, TABLE_ROWS } from "../../../../helper/data";
 function TeacherRegistration() {
 
+ const [Data, setData] = useState(TABLE_ROWS)
+    const ITEMS_PER_PAGE = 9;
+    const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = Math.ceil(Data.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentData = Data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  
+    
+    const deleteData = (id) => {
+        const dataf = Data.filter((row, index) => index !== id)
+        setData(dataf)
+    }
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -28,8 +40,8 @@ function TeacherRegistration() {
 
     }
 
-  
-    
+
+
     return (
         <div className='flex pt-5 px-2 flex-col gap-4'>
             <div className='flex justify-between p-2 items-center text-white'>
@@ -37,7 +49,7 @@ function TeacherRegistration() {
                 {/* <p onClick={handleOpen} className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Adicionar Novo Usuário</p> */}
             </div>
 
-        
+
             <Card className="h-full lg:overflow-hidden overflow-x-scroll   w-full  px-6">
                 <table className="w-full min-w-max table-auto text-left">
                     <thead>
@@ -56,20 +68,20 @@ function TeacherRegistration() {
                         </tr>
                     </thead>
                     <tbody>
-                        {TABLE_ROWS.map(({ value, disc, name, date, img, email, status }, index) => {
-                            const isLast = index === TABLE_ROWS.length - 1;
-                            const classes = isLast ? "py-4  p-3" : "py-4 border-b p-3 border-gray-300 ";
-
-                            return (
-                                <tr key={index} className="hover:bg-gray-50">
-                                    <td className={classes}>
-                                        <Typography
-                                            variant="small"
-                                            className="font-normal text-gray-600"
-                                        >
-                                            {value}
-                                        </Typography>
-                                    </td>
+                        {currentData.map(({ value, disc, name, date, img, email, status }, index) => {
+                                       const isLast = index === currentData.length - 1;
+                                       const classes = isLast ? "py-4  p-3 " : "py-4 p-3 border-b  border-gray-300 ";
+                         
+                                       return (
+                                         <tr key={index} className="hover:bg-gray-50">
+                                           <td className={classes}>
+                                             <Typography
+                                               variant="small"
+                                               className="font-normal text-gray-600"
+                                             >
+                                               {startIndex + index + 1}
+                                             </Typography>
+                                           </td>
                                     <td className={classes}>
                                         <div className="flex items-center gap-3">
                                             <Avatar src={img} alt={name} size="sm" />
@@ -132,7 +144,7 @@ function TeacherRegistration() {
                                                 <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                                                     <GoPencil />
                                                 </ListItemPrefix>Edit</ListItem>
-                                                <ListItem className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
+                                                <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
                                                 </ListItemPrefix>Delete</ListItem>
                                             </List>
@@ -144,21 +156,31 @@ function TeacherRegistration() {
                         })}
                     </tbody>
                 </table>
-       
+
             </Card>
             <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
-          <Typography variant="small" color="blue-gray" className="font-normal">
-            Page 1 of 10
-          </Typography>
-          <div className="flex gap-2">
-            <Button variant="outlined" size="sm">
-              Prev
-            </Button>
-            <Button variant="outlined" size="sm">
-              Next
-            </Button>
-          </div>
-        </CardFooter>
+                <Typography variant="small" color="blue-gray" className="font-normal">
+                    Page {currentPage} of {totalPages}
+                </Typography>
+                <div className="flex gap-2">
+                    <Button
+                        variant="outlined"
+                        size="sm"
+                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        Prev
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        size="sm"
+                        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </CardFooter>
         </div>
     )
 }

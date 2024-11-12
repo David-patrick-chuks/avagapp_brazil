@@ -13,7 +13,7 @@ function ClassOverView() {
             <div className='grid  grid-cols-2 lg:grid-cols-4 gap-2 p-3 '>
                 {
                     [1,2,3,4,5,6].map((item, index) => (
-                        <Link to={"details"} key={index} className=' p-3 relative mb-4 flex flex-col gap-1 rounded-xl'>
+                        <Link to={`${item}`} key={index} className=' p-3 relative mb-4 flex flex-col gap-1 rounded-xl'>
                             <img src="/teacher/react.png" className="rounded-full size-14 bg-main-light p-2 absolute -right-2 -top-2 " />
                             <img src={`/teacher/course${item}.png`} alt="" />
                             <p className='flex justify-between items-end text-lg font-semibold'>
