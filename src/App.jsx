@@ -82,8 +82,10 @@ function App() {
             <Route index element={<AdminHome />} />
             <Route path="register-teacher" element={<TeacherRegistration />} />
             <Route path="teacher-management" element={<TeacherManagement />} />
-            <Route path="knowledge" element={<AdminKnowledge />} >
-            </Route>
+            {/* <Route path="knowledge" element={<AdminKnowledge />} /> */}
+            <Route path="knowledge" element={<Knowledge />} />
+            
+            <Route path="knowledge/Know-details" element={<ClassOverViewDetails />} />
             <Route path="ranking" element={<AdminRanking />} />
 
             <Route path="game" element={<Game />} />
