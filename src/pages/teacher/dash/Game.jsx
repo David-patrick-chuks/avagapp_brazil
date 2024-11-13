@@ -7,7 +7,7 @@ function Game() {
 
   return (
     <div className='px-3'>
-      <p className='font-bold text-[23px] mb-3 text-black'>All Games</p>
+      <p className='font-bold text-[23px] mb-3 text-black'>Todos os jogos</p>
         
       <div className='grid  grid-cols-2 lg:grid-cols-4 gap-2 p-3 '>
                 {

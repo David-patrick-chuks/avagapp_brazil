@@ -36,7 +36,7 @@ export default function THome() {
         <div className='pr-4 flex px-2 flex-col gap-4'>
             <div className='flex items-center'>
                 <h1 className="text-center -mb-1 text-2xl font-bold">
-                Hello, Faizan Ansari
+                Olá, Faizan Ansari
                 </h1>
                 <img src="/teacher/avatar.png" className='size-12' />
             </div>
@@ -52,7 +52,7 @@ export default function THome() {
                                 <p className='font-semibold text-xl'>{card.label}</p>
                                 <div className='flex gap-2 items-center'>
                                     <p>{card.value} </p>
-                                    <span className={`flex text-xs items-end ${card.label === "Classes" ? "text-[#FF0000]" : "text-main-dark"}`}><IoTriangle size={10} className=' rotate-180 mb-[3px] mr-[2px]' />{card.desp}</span>
+                                    <span className={`flex text-xs items-end ${card.label === "Aulas" ? "text-[#FF0000]" : "text-main-dark"}`}><IoTriangle size={10} className=' rotate-180 mb-[3px] mr-[2px]' />{card.desp}</span>
                                 </div>
                             </div>
                         </div>
@@ -150,15 +150,15 @@ export default function THome() {
                                                 <ListItemPrefix >
                                                     <IoEyeOutline />
                                                 </ListItemPrefix>
-                                                View
+                                                Ver
 
                                             </ListItem >
                                                 <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                                                     <GoPencil />
-                                                </ListItemPrefix>Edit</ListItem>
+                                                </ListItemPrefix>Editar</ListItem>
                                                 <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
-                                                </ListItemPrefix>Delete</ListItem>
+                                                </ListItemPrefix>Excluir</ListItem>
                                             </List>
                                         </Card>
 
@@ -172,7 +172,7 @@ export default function THome() {
             </Card>
   <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
         <Typography variant="small" color="blue-gray" className="font-normal">
-          Page {currentPage} of {totalPages}
+        Página {currentPage} de {totalPages}
         </Typography>
         <div className="flex gap-2">
           <Button
@@ -181,7 +181,7 @@ export default function THome() {
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
-            Prev
+            Anterior
           </Button>
           <Button
             variant="outlined"
@@ -189,7 +189,7 @@ export default function THome() {
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
-            Next
+            Próxima
           </Button>
         </div>
       </CardFooter>

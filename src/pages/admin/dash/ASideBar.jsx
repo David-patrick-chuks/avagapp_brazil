@@ -18,32 +18,32 @@ export default function ASideBar() {
 
   const sideLinks = [
     {
-      label: "Home",
+      label: "Início",
       inActive: <MdHome />,
       path: "/admin/dashboard",
     },
     {
-      label: "Teacher Management",
+      label: "Gestão de Professores",
       inActive: <FaUserAlt />,
       path: "/admin/dashboard/register-teacher",
     },
     {
-      label: "User Management",
+      label: "Gestão de Usuários",
       inActive: <FaUserAlt />,
       path: "/admin/dashboard/teacher-management",
     },
     {
-      label: "Knowledge Trail",
+      label: "Conhecimento",
       inActive: <FaBook />,
       path: "/admin/dashboard/knowledge",
     },
     {
-      label: "Leaderboard",
+      label: "Ranking",
       inActive: <LiaClipboardListSolid />,
       path: "/admin/dashboard/ranking",
     },
     {
-      label: "Games",
+      label: "Jogos",
       inActive: <IoGameController />,
       path: "/admin/dashboard/game",
     },
@@ -56,7 +56,7 @@ export default function ASideBar() {
     //   path: "/admin/dashboard/setting",
     // },
     {
-      label: "Logout",
+      label: "Sair",
       inActive: <IoLogOut />,
       path: "/",
     },

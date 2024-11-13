@@ -23,34 +23,34 @@ export default function SSideBar() {
             path: "/student/dashboard",
         },
         {
-            label: "Class Overview",
+            label: "Visão Geral da Turma",
             inActive: <FaBookOpen />,
             path: "/student/dashboard/class-overview",
         },
         {
-            label: "Knowledge Trail",
+            label: "Conhecimento",
             inActive: <ImBook />,
             path: "/student/dashboard/student-knowledge",
         },
         {
-            label: "Activity",
+            label: "Atividade",
             inActive: <PiClockFill />,
             path: "/student/dashboard/activty",
         },
         {
-            label: "Leaderboard",
+            label: "Ranking",
             inActive: <LiaClipboardListSolid />,
             path: "/student/dashboard/student-ranking",
         },
 
         {
-            label: "Profile Management",
+            label: "Gestão de Perfil",
             inActive: <FaUserAlt />,
             path: "/student/dashboard/student-profile",
         },
 
         {
-            label: "Games",
+            label: "Jogos",
             inActive: <IoGameController />,
             path: "/student/dashboard/student-game",
         },
@@ -68,12 +68,12 @@ export default function SSideBar() {
 
     const config = [
         {
-            label: "Setting",
+            label: "Configurações",
             inActive: <AiFillSetting />,
             path: "/student/dashboard/setting",
         },
         {
-            label: "Logout",
+            label: "Sair",
             inActive: <IoLogOut />,
             path: "/",
         },

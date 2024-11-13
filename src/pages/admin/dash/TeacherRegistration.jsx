@@ -45,7 +45,7 @@ function TeacherRegistration() {
     return (
         <div className='flex pt-5 px-2 flex-col gap-4'>
             <div className='flex justify-between p-2 items-center text-white'>
-                <p className='font-bold text-[28px] text-black'>Teachers Management</p>
+                <p className='font-bold text-[28px] text-black'>Gestão de Professores</p>
                 {/* <p onClick={handleOpen} className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Adicionar Novo Usuário</p> */}
             </div>
 
@@ -138,15 +138,15 @@ function TeacherRegistration() {
                                                 <ListItemPrefix >
                                                     <IoEyeOutline />
                                                 </ListItemPrefix>
-                                                View
+                                                Ver
 
                                             </ListItem >
                                                 <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                                                     <GoPencil />
-                                                </ListItemPrefix>Edit</ListItem>
+                                                </ListItemPrefix>Editar</ListItem>
                                                 <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
-                                                </ListItemPrefix>Delete</ListItem>
+                                                </ListItemPrefix>Excluir</ListItem>
                                             </List>
                                         </Card>
 
@@ -160,7 +160,7 @@ function TeacherRegistration() {
             </Card>
             <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal">
-                    Page {currentPage} of {totalPages}
+                Página {currentPage} de {totalPages}
                 </Typography>
                 <div className="flex gap-2">
                     <Button
@@ -169,16 +169,16 @@ function TeacherRegistration() {
                         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
                     >
-                        Prev
-                    </Button>
+                        Anterior
+            </Button>
                     <Button
                         variant="outlined"
                         size="sm"
                         onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
                     >
-                        Next
-                    </Button>
+                        Próxima
+            </Button>
                 </div>
             </CardFooter>
         </div>

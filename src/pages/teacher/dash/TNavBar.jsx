@@ -25,7 +25,7 @@ export function TNavBar() {
           <input
             type="text"
             autoComplete="off"
-            placeholder="Search here"
+            placeholder="Pesquisar aqui"
             className="text-accent 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-accent border-none active:border-none outline-none rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4"
             id="name"
           />

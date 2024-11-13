@@ -18,42 +18,42 @@ export default function TSideBar() {
 
   const sideLinks = [
     {
-      label: "Home",
+      label: "Início",
       inActive: <MdHome />,
       path: "/teacher/dashboard",
     },
     {
-      label: "User Registration",
+      label: "Registro de Usuário",
       inActive: <FaUserAlt />,
       path: "/teacher/dashboard/register-user",
     },
     {
-      label: "User Management",
+      label: "Gestão de Usuários",
       inActive: <FaUserAlt />,
       path: "/teacher/dashboard/management",
     },
     {
-      label: "Institutor List",
+      label: "Lista de Instituidores",
       inActive: <GiTeacher />,
       path: "/teacher/dashboard/institute",
     },
     {
-      label: "Certificate Generation",
+      label: "Geração de Certificado",
       inActive: <RiAiGenerate />,
       path: "/teacher/dashboard/generate",
     },
     {
-      label: "Knowledge Trail",
+      label: "Conhecimento",
       inActive: <FaBook />,
       path: "/teacher/dashboard/knowledge",
     },
     {
-      label: "Leaderboard",
+      label: "Ranking",
       inActive: <LiaClipboardListSolid />,
       path: "/teacher/dashboard/ranking",
     },
     {
-      label: "Games",
+      label: "Jogos",
       inActive: <IoGameController />,
       path: "/teacher/dashboard/game",
     },
@@ -66,7 +66,7 @@ export default function TSideBar() {
     //   path: "/teacher/dashboard/setting",
     // },
     {
-      label: "Logout",
+      label: "Sair",
       inActive: <IoLogOut />,
       path: "/",
     },

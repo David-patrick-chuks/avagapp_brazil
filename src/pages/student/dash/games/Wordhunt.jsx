@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 function Wordhunt() {
 
   const initialBoard = [
@@ -59,7 +59,7 @@ function Wordhunt() {
     <div className='p-3 flex flex-col gap-2'>
 
       <div className='  flex gap-5 p-2 justify-between lg:justify-start items-center text-white'>
-        <p className='font-bold lg:text-[20px] text-black'>Play and Win <img src="/student/bulb.png" className='inline-block my-auto' alt="" /></p>
+        <p className='font-bold lg:text-[20px] text-black'>Jogue e Ganhe <img src="/student/bulb.png" className='inline-block my-auto' alt="" /></p>
 
         <p className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Total Score: 100</p>
       </div>

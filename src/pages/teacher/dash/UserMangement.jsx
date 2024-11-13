@@ -48,8 +48,8 @@ function UserMangement() {
     return (
         <div className='flex pt-5 px-3 flex-col gap-4'>
             <div className='flex justify-between p-2 gap-3 items-center text-white'>
-                <p className='font-bold lg:text-[28px] text-black'>User Management</p>
-                <p onClick={handleOpen} className='flex cursor-pointer p-[6px] lg:p-[10px] text-center items-center rounded-lg lg:rounded-2xl gap-2 bg-main-dark'>Add New User</p>
+                <p className='font-bold lg:text-[28px] text-black'>Gestão de Usuários</p>
+                <p onClick={handleOpen} className='flex cursor-pointer p-[6px] lg:p-[10px] text-center items-center rounded-lg lg:rounded-2xl gap-2 bg-main-dark'>Adicionar Novo Usuário</p>
             </div>
 
             <Dialog
@@ -62,25 +62,25 @@ function UserMangement() {
                 }}
                 className="p-3 border-2 border-main-dark"
             >
-                <h1 className="text-2xl font-num font-bold text-main-dark mb-3">Add New User</h1>
+                <h1 className="text-2xl font-num font-bold text-main-dark mb-3">Adicionar Novo Usuário</h1>
 
                 <div className='2xl:p-[30px] font-num w-[100%]  p-4 lg:p-5 flex flex-col gap-[18px] rounded-xl 2xl:rounded-3xl  bg-main-light'>
 
-                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>Name
-                        <input type="text" autoComplete='off' placeholder='Name' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
+                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>Nome
+                        <input type="text" autoComplete='off' placeholder='Nome' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                     </label>
                     <label htmlFor="name" className='font-medium text-lg text-main-dark'>Email
                         <input type="email" autoComplete='off' placeholder='Email' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                     </label>
-                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>Role
-                        <input type="text" autoComplete='off' placeholder='Role ' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
+                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>Função
+                        <input type="text" autoComplete='off' placeholder='Função ' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                     </label>
                     <label htmlFor="name" className='font-medium text-lg text-main-dark'>Status
                         <input type="text" autoComplete='off' placeholder='Status' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                     </label>
 
                     <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
-                        Add
+                    Adicionar
                     </p>
                 </div>
 
@@ -175,15 +175,15 @@ function UserMangement() {
                                                 <ListItemPrefix >
                                                     <IoEyeOutline />
                                                 </ListItemPrefix>
-                                                View
+                                                Ver
 
                                             </ListItem >
                                                 <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                                                     <GoPencil />
-                                                </ListItemPrefix>Edit</ListItem>
+                                                </ListItemPrefix>Editar</ListItem>
                                                 <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
-                                                </ListItemPrefix>Delete</ListItem>
+                                                </ListItemPrefix>Excluir</ListItem>
                                             </List>
                                         </Card>
 
@@ -197,7 +197,7 @@ function UserMangement() {
             </Card>
             <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal">
-                    Page {currentPage} of {totalPages}
+                Página {currentPage} de {totalPages}
                 </Typography>
                 <div className="flex gap-2">
                     <Button
@@ -206,16 +206,16 @@ function UserMangement() {
                         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
                     >
-                        Prev
-                    </Button>
+                        Anterior
+            </Button>
                     <Button
                         variant="outlined"
                         size="sm"
                         onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
                     >
-                        Next
-                    </Button>
+                        Próxima
+            </Button>
                 </div>
             </CardFooter>
         </div>

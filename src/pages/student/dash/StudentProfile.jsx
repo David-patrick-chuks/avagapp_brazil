@@ -82,7 +82,7 @@ function StudentProfile() {
 
     return (
         <div className='pr-5 px-3 pt-3'>
-            <p className='font-bold text-[22px] text-black'>Profile Management</p>
+            <p className='font-bold text-[22px] text-black'>Gerenciamento de Perfil</p>
 
             <div className='flex justify-between items-start bg-main-light p-5 rounded-xl'>
                 <div className='flex lg:flex-row flex-col gap-3 justify-center items-center'>
@@ -92,7 +92,7 @@ function StudentProfile() {
                         <p className='text-black/50'>alexarawles@gmail.com</p>
                     </div>
                 </div>
-                <p onClick={handleOpen} className='flex w-fit cursor-pointer p-[10px] items-center rounded-xl text-sm gap-2 text-white bg-main-dark'>Edit Avatar</p>
+                <p onClick={handleOpen} className='flex w-fit cursor-pointer p-[10px] items-center rounded-xl text-sm gap-2 text-white bg-main-dark'>Editar Avatar</p>
             </div>
 
 
@@ -152,7 +152,7 @@ function StudentProfile() {
                                 <TabPanel key={pieceType} value={"Face"}>
                                     {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
                                     <div>
-                                        <h1>mouthType</h1>
+                                        {/* <h1>mouthType</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions[pieceType].map((option) => (
                                                 <div onClick={() => updateAvatar(pieceType, option)} className={` ${avatarConfig.eyeType === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex justify-center items-center z-50`} key={option} >
@@ -160,7 +160,7 @@ function StudentProfile() {
                                                    <Piece style={{ width: '150px', height: '50px', }}    pieceType="eyes" pieceSize="100" mouthType={option} />
                                                 </div>))}  </div>
 
-                                        <h1>eyebrow</h1>
+                                        {/* <h1>eyebrow</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions["eyebrowType"].map((option) => (
                                                 <div onClick={() => updateAvatar("eyebrowType", option)} className={` ${avatarConfig.eyebrowType === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -184,7 +184,7 @@ function StudentProfile() {
                                 <TabPanel key={pieceType} value={"Eye"}>
                                     {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
                                     <div>
-                                        <h1>accessories</h1>
+                                        {/* <h1>accessories</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions[pieceType].map((option) => (
                                                 <div onClick={() => updateAvatar(pieceType, option)} className={` ${avatarConfig.accessoriesType === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -215,7 +215,7 @@ function StudentProfile() {
                                 <TabPanel key={pieceType} value={"Nose"}>
                                     {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
                                     <div>
-                                        <h1>Clothe</h1>
+                                        {/* <h1>Clothe</h1> */}
                                         <div className='grid grid-cols-7 gap-2 place-content-center w-fit'>
                                             {avatarOptions[pieceType].map((option) => (
                                                 <div onClick={() => updateAvatar(pieceType, option)} className={` ${avatarConfig.clotheType === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -223,7 +223,7 @@ function StudentProfile() {
 
                                                 </div>))}  </div>
 
-                                        <h1>Clothe Color</h1>
+                                        {/* <h1>Clothe Color</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions["clotheColor"].map((option) => (
                                                 <div onClick={() => updateAvatar("clotheColor", option)} className={` ${avatarConfig.clotheColor === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -243,7 +243,7 @@ function StudentProfile() {
                                     {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
                                     <div>
                                         
-                                    <h1>Hair Style</h1>
+                                    {/* <h1>Hair Style</h1> */}
                                         <div className='grid grid-cols-7 gap-2 place-content-center w-fit'>
                                             {avatarOptions[pieceType].map((option) => (
                                                 <div onClick={() => updateAvatar(pieceType, option)} className={` ${avatarConfig.topType === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -258,7 +258,7 @@ function StudentProfile() {
                                 <TabPanel key={pieceType} value={"Color"}>
                                     {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
                                     <div>
-                                        <h1>Skin Color</h1>
+                                        {/* <h1>Skin Color</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions[pieceType].map((option) => (
                                                 <div onClick={() => updateAvatar(pieceType, option)} className={` ${avatarConfig.skinColor === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -267,7 +267,7 @@ function StudentProfile() {
                                                 </div>))}
 
                                         </div>
-                                        <h1>Hair Color</h1>
+                                        {/* <h1>Hair Color</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions["hairColor"].map((option) => (
                                                 <div onClick={() => updateAvatar("hairColor", option)} className={` ${avatarConfig.hairColor === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -292,7 +292,7 @@ function StudentProfile() {
                     <input type="text" autoComplete='off' placeholder='Alexa' className='text-black/50 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-black/50 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                 </label>
 
-                <label htmlFor="name" className='font-medium text-sm text-black'>Name
+                <label htmlFor="name" className='font-medium text-sm text-black'>Nome
                     <input type="text" autoComplete='off' placeholder='Alexa' className='text-black/50 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-black/50 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                 </label>
 
@@ -300,13 +300,13 @@ function StudentProfile() {
                     <input type="email" autoComplete='off' placeholder='Alexa' className='text-black/50 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-black/50 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                 </label>
 
-                <label htmlFor="name" className='font-medium text-sm text-black'>Number (Optional)
+                <label htmlFor="name" className='font-medium text-sm text-black'>Número (Opcional)
                     <input type="text" autoComplete='off' placeholder='Alexa' className='text-black/50 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-black/50 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                 </label>
 
 
 
-                <label htmlFor="name" className=' relative font-medium text-sm text-black'>Password
+                <label htmlFor="name" className=' relative font-medium text-sm text-black'>Senha
                     <input type={viewPassword ? "text" : "password"} autoComplete='off' placeholder='Alexa' className='text-main-black/50 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-black/50 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                     <p className=' top-[60%] right-3 text-black/50 absolute' onClick={togglePassword}>
                         {
@@ -316,7 +316,7 @@ function StudentProfile() {
                     </p>
                 </label>
 
-                <label htmlFor="name" className=' relative font-medium text-sm text-black'>Confirm Password
+                <label htmlFor="name" className=' relative font-medium text-sm text-black'>Confirmar Senha
                     <input type={viewPassword ? "text" : "password"} autoComplete='off' placeholder='Alexa' className='text-main-black/50 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-black/50 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
                     <p className=' top-[60%] right-3 text-black/50 absolute' onClick={togglePassword}>
                         {
@@ -328,7 +328,7 @@ function StudentProfile() {
             </div>
 
             <div className='flex w-full justify-end mt-5'>
-                <p className='flex w-fit cursor-pointer p-[10px] items-center rounded-xl text-sm gap-2 text-white bg-main-dark'>Save</p>
+                <p className='flex w-fit cursor-pointer p-[10px] items-center rounded-xl text-sm gap-2 text-white bg-main-dark'>Salvar</p>
             </div>        </div>
     )
 }

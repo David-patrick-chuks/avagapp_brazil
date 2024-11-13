@@ -7,7 +7,7 @@ function ClassOverView() {
     <div className='pr-4 pt-3'>
         
         <div className='flex justify-between p-2 items-center text-white'>
-                <p className='font-bold text-[22px] text-black'>Class Overview</p>
+                <p className='font-bold text-[22px] text-black'>Visão Geral da Aula</p>
                 {/* <p  className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Ver tudo</p> */}
             </div>
             <div className='grid  grid-cols-2 lg:grid-cols-4 gap-2 p-3 '>
@@ -17,10 +17,10 @@ function ClassOverView() {
                             <img src="/teacher/react.png" className="rounded-full size-14 bg-main-light p-2 absolute -right-2 -top-2 " />
                             <img src={`/teacher/course${item}.png`} alt="" />
                             <p className='flex justify-between items-end text-lg font-semibold'>
-                                <span>Physics</span>
+                                <span>Física</span>
                                 <BsThreeDotsVertical size={15} className=' rotate-90' />
                             </p>
-                            <span className='-mt-1 text-sm text-black/50 '>Assigned by Sir Haseeb</span>
+                            <span className='-mt-1 text-sm text-black/50 '>Atribuído por Sir Haseeb</span>
                          
                         </Link>
                     ))

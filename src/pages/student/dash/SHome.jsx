@@ -1,17 +1,15 @@
 
-import React, { useState } from 'react';
-import { IoEyeOutline, IoTriangle } from 'react-icons/io5';
+import React from 'react';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { IoTriangle } from 'react-icons/io5';
 import { studentData, studentNotify } from "../../../../helper/data";
-import { Card, List, ListItem, ListItemPrefix } from '@material-tailwind/react';
-import { BsFillTrashFill, BsThreeDotsVertical } from 'react-icons/bs';
-import { GoPencil } from 'react-icons/go';
 export default function SHome() {
 
     return (
         <div className='pr-4 px-3 lg:px-0 flex flex-col gap-4'>
             <div className='flex items-center'>
                 <h1 className="text-center -mb-1 text-2xl font-bold">
-                Hello, Faizan Ansari
+                Olá, Faizan Ansari
                 </h1>
                 <img src="/teacher/avatar.png" className='size-12' />
             </div>
@@ -26,7 +24,7 @@ export default function SHome() {
                                     <p className='font-semibold text-xl'>{card.label}</p>
                                     <div className='flex gap-2 items-center'>
                                         <p>{card.value} </p>
-                                        <span className={`flex text-xs items-end ${card.label === "Medal" ? "text-[#FF0000]" : "text-main-dark"}`}><IoTriangle size={10} className=' rotate-180   mb-[3px] mr-[2px]' />{card.desp}</span>
+                                        <span className={`flex text-xs items-end ${card.label === "Medalhas" ? "text-[#FF0000]" : "text-main-dark"}`}><IoTriangle size={10} className=' rotate-180   mb-[3px] mr-[2px]' />{card.desp}</span>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +33,7 @@ export default function SHome() {
                     }
                 </div>
                 <div className=' grid lg:col-span-1 col-span-2 lg:flex flex-col px-5 gap-3'>
-                    <p className='px-8 text-main-dark font-medium flex'>Classification
+                    <p className='px-8 text-main-dark font-medium flex'>Classificação
                         <img src="/student/star.png" alt="" />
 
                     </p>
@@ -61,8 +59,8 @@ export default function SHome() {
 
       <div>
       <div className='flex justify-between p-2 items-center text-white'>
-                <p className='font-bold text-[22px] text-black'>Knowledge Trail</p>
-                <p  className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>See all</p>
+                <p className='font-bold text-[22px] text-black'>Trilha do Conhecimento</p>
+                <p  className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Ver tudo</p>
             </div>
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 p-3 '>
                 {
@@ -71,18 +69,18 @@ export default function SHome() {
                             <img src="/teacher/react.png" className="rounded-full size-14 bg-main-light p-2 absolute -right-2 -top-2 " />
                             <img src={`/teacher/course${item}.png`} alt="" />
                             <p className='flex justify-between items-end text-lg font-semibold'>
-                                <span>Physics</span>
+                                <span>Física</span>
                                 <BsThreeDotsVertical size={15} className=' rotate-90' />
                             </p>
-                            <span className='-mt-1 text-sm text-black/50 '>Assigned by Sir Haseeb</span>
+                            <span className='-mt-1 text-sm text-black/50 '>Atribuído por Sir Haseeb</span>
                          
                         </div>
                     ))
                 }
             </div>
             <div className='flex justify-between p-2 items-center text-white'>
-                <p className='font-bold text-[22px] text-black'>Class Track</p>
-                <p  className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>See all</p>
+                <p className='font-bold text-[22px] text-black'>Trilha das Aulas</p>
+                <p  className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Ver tudo</p>
             </div>
             <div className='grid  grid-cols-2 lg:grid-cols-4 gap-2 p-3 '>
                 {
@@ -91,10 +89,10 @@ export default function SHome() {
                             <img src="/teacher/react.png" className="rounded-full size-14 bg-main-light p-2 absolute -right-2 -top-2 " />
                             <img src={`/teacher/course${item}.png`} alt="" />
                             <p className='flex justify-between items-end text-lg font-semibold'>
-                                <span>Physics</span>
+                                <span>Física</span>
                                 <BsThreeDotsVertical size={15} className=' rotate-90' />
                             </p>
-                            <span className='-mt-1 text-sm text-black/50 '>Assigned by Sir Haseeb</span>
+                            <span className='-mt-1 text-sm text-black/50 '>Atribuído por Sir Haseeb</span>
                          
                         </div>
                     ))

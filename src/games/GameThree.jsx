@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';import { HTML5Backend } from 'react-dnd-html5-backend';
+import { Dialog } from '@material-tailwind/react';
+import { MultiBackend, TouchTransition } from 'dnd-multi-backend';
+import React, { useEffect, useState } from 'react';
+import Confetti from 'react-confetti';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
-import  {MultiBackend, TouchTransition } from 'dnd-multi-backend';
 
 
 const HTML5toTouch = {
@@ -17,35 +20,34 @@ const HTML5toTouch = {
     },
   ],
 };
-import Confetti from 'react-confetti';
-import { Dialog } from '@material-tailwind/react';
 
 const reorderQuestions = [
   {
-    question: 'Arrange the planets by distance from the Sun (closest to farthest)',
-    correctOrder: ['Mercury', 'Venus', 'Earth', 'Mars'],
-    options: ['Earth', 'Venus', 'Mars', 'Mercury'],
+    question: 'Arrume os planetas pela distância do Sol (do mais próximo ao mais distante)',
+    correctOrder: ['Mercúrio', 'Vênus', 'Terra', 'Marte'],
+    options: ['Terra', 'Vênus', 'Marte', 'Mercúrio'],
   },
   {
-    question: 'Order these numbers from smallest to largest',
+    question: 'Ordene esses números do menor para o maior',
     correctOrder: ['3', '8', '12', '20'],
     options: ['12', '3', '20', '8'],
   },
   {
-    question: 'Arrange the historical events chronologically',
-    correctOrder: ['Fall of Rome', 'Discovery of America', 'Moon Landing', 'Berlin Wall Fall'],
-    options: ['Moon Landing', 'Berlin Wall Fall', 'Fall of Rome', 'Discovery of America'],
+    question: 'Arrume os eventos históricos em ordem cronológica',
+    correctOrder: ['Queda de Roma', 'Descobrimento da América', 'Pouso na Lua', 'Queda do Muro de Berlim'],
+    options: ['Pouso na Lua', 'Queda do Muro de Berlim', 'Queda de Roma', 'Descobrimento da América'],
   },
   {
-    question: 'Order these colors by wavelength (shortest to longest)',
-    correctOrder: ['Violet', 'Blue', 'Green', 'Red'],
-    options: ['Green', 'Blue', 'Violet', 'Red'],
+    question: 'Ordene essas cores pela longitude de onda (da mais curta para a mais longa)',
+    correctOrder: ['Violeta', 'Azul', 'Verde', 'Vermelho'],
+    options: ['Verde', 'Azul', 'Violeta', 'Vermelho'],
   },
   {
-    question: 'Arrange the following continents by size (smallest to largest)',
-    correctOrder: ['Europe', 'Australia', 'Antarctica', 'Asia'],
-    options: ['Asia', 'Europe', 'Australia', 'Antarctica'],
+    question: 'Arrume os seguintes continentes por tamanho (do menor para o maior)',
+    correctOrder: ['Europa', 'Austrália', 'Antártida', 'Ásia'],
+    options: ['Ásia', 'Europa', 'Austrália', 'Antártida'],
   },
+  
 ];
 
 const GameThree = () => {
@@ -125,7 +127,8 @@ const GameThree = () => {
   const scorePercentage = (score / questionsData.length) * 100;
 
   const shareScore = () => {
-    const shareText = `I scored ${scorePercentage}% in the Fill in the Blanks Game! 🎉`;
+    const shareText = `Eu acertei ${scorePercentage}% no jogo Preencher as Lacunas! 🎉`;
+
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(shareText);
 
@@ -139,14 +142,14 @@ const GameThree = () => {
 
   return (
     <DndProvider backend={MultiBackend} options={HTML5toTouch}>
-      <div className="w-full h-full flex items-center justify-center p-6">
+      <div className="w-full h-full flex items-center justify-center lg:p-6">
 
 
         <div className=" bg-white w-full rounded-lg p-8       space-y-6">
           {/* Progress Bar */}
           <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
             <p className="font-bold lg:text-[20px] text-black">
-              Play and Win{" "}
+              Jogue e Ganhe{" "}
               <img
                 src="/student/bulb.png"
                 className="inline-block my-auto"
@@ -155,7 +158,7 @@ const GameThree = () => {
             </p>
 
             <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
-              Total Score: 0
+              Pontuação Total: 0
             </p>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
@@ -168,7 +171,7 @@ const GameThree = () => {
           {/* <h2 className="text-2xl font-bold text-center text-blue-600">
             Reorder the Items
           </h2> */}
-          <p className="text-2xl font-bold text-center text-blacl mb-4">
+          <p className="lg:text-2xl  font-bold text-center text-blacl mb-4">
             {currentQuestion?.question}
           </p>
 
@@ -187,9 +190,10 @@ const GameThree = () => {
             onClick={handleSubmit}
             className="bg-green-600 text-white py-2 px-4 rounded mt-4 w-full"
           >
-            {currentQuestionIndex + 1 < questionsData.length
-              ? 'Next Question'
-              : 'Finish'}
+         {currentQuestionIndex + 1 < questionsData.length
+  ? 'Próxima Pergunta'
+  : 'Finalizar'}
+
           </button>
           {showModal && (
             <>
@@ -216,16 +220,16 @@ const GameThree = () => {
 
                   <div className="w-full flex flex-col items-center '">
                     <p className="text-main-dark font-bold text-3xl">
-                      Congratulations
+                    Parabéns
                     </p>
-                    <p className="text-xl m-1 text-[#545454] font-semibold">{`${score} out of ${questionsData.length} correct!`}</p>
+                    <p className="text-xl m-1 text-[#545454] font-semibold">{`${score} de ${questionsData.length} acertos!`}</p>
                     <p className="text-center ">
-                      You've now entered into the GRAND PRIZE of 1 bottle of your
-                      choice during tonight's party!...
+                    Agora você entrou na disputa pelo GRANDE PRÊMIO de 1 garrafa da sua
+                  escolha durante a festa de hoje à noite!...
                     </p>
                   </div>
                   <p className="text-main-dark font-semibold text-2xl ">
-                    Your score
+                    Sua pontuação
                   </p>
                   <p className="text-main-dark font-semibold text-5xl -mt-1">
                     {scorePercentage}
@@ -238,12 +242,12 @@ const GameThree = () => {
               </Dialog>
             </>
           )}
-          {showModal && (
+          {/* {showModal && (
             <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
               <Confetti />
               <div className="bg-white p-8 rounded-lg shadow-lg  text-center">
                 <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
-                <p className="mb-4">Your Score: {score} / {questionsData.length}</p>
+                <p className="mb-4">Sua pontuação: {score} / {questionsData.length}</p>
                 <button
                   onClick={handleReset}
                   className="bg-blue-500 text-white py-2 px-4 rounded mt-4"
@@ -252,7 +256,7 @@ const GameThree = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </DndProvider>

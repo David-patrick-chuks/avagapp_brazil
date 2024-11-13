@@ -4,7 +4,7 @@ import { subtitle } from '../../../../helper/data';
 import { useParams } from 'react-router-dom';
 
 function ClassDetails() {
-    const [activeTab, setActiveTab] = useState("Transcription")
+    const [activeTab, setActiveTab] = useState("Transcrição")
 
     const {id} =useParams()
 
@@ -27,15 +27,15 @@ function ClassDetails() {
 
     const data = [
         {
-            label: "Transcription",
-            value: "Transcription",
+            label: "Transcrição",
+            value: "Transcrição",
             desc: `It really matters and then like it really doesn't matter.
           What matters is the people who are sparked by it. And the people 
           who are like offended by it, it doesn't matter.`,
         },
         {
-            label: "Notes",
-            value: "Notes",
+            label: "Notas",
+            value: "Notas",
             desc: `Because it's about motivating the doers. Because I'm here
           to follow my dreams and inspire other people to follow their dreams, too.`,
         },
@@ -72,23 +72,26 @@ function ClassDetails() {
                     <img src="/student/congrat.png" className="w-[50%]" />
 
                     <div className="w-full flex text-center flex-col items-center jusc'">
-                        <p className="text-main-dark font-semibold text-2xl">Congratulations</p>
-                        <p className='text-center text-lg font-medium'>You've Successfully Completed                       </p>
-                        <p className='text-center text-sm'>Click the button below to generate and download your course completion certificate
+                        <p className="text-main-dark font-semibold text-2xl">Parabéns</p>
+                        <p className='text-center text-lg font-medium'>Você concluiu com sucesso
+                        </p>
+                        <p className='text-center text-sm'>Clique no botão abaixo para gerar e baixar seu certificado de conclusão de curso
+
                         </p>
                     </div>
 
                     <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
-                    Generate Certificate
+                    Gerar certificado
+
                     </p>
                 </div>
 
             </Dialog>
-            <p className='font-bold text-[22px] text-black'>Knowledge Trail</p>
+            <p className='font-bold text-[22px] text-black'>Visão Geral da Aula</p>
             <div className='flex w-full h-[30dvh] overflow-hidden'>
                 <img src={`/teacher/course${id}.png`} className='w-full object-cover h-full' alt="" />
             </div>
-            <p className='font-bold text-[22px] text-black'>Lesson no 01 : What is UX?</p>
+            <p className='font-bold text-[22px] text-black'>Lição 01: O que é UX?</p>
 
             <Tabs value={activeTab}>
                 <TabsHeader
@@ -113,7 +116,7 @@ function ClassDetails() {
                     {data.map(({ value }) => (
                         <TabPanel key={value} value={value}>
                             {
-                                value === "Transcription" ? (<div className='flex gap-5 flex-col'  >
+                                value === "Transcrição" ? (<div className='flex gap-5 flex-col'  >
                                     {
                                         subtitle.map((data, i) => (
                                             <div key={i} className='flex gap-6'>

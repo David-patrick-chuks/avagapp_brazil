@@ -4,30 +4,31 @@ import Confetti from 'react-confetti';
 
 const multipleChoiceQuestions = [
   {
-    question: 'Which planet is known as the Red Planet?',
-    correctAnswer: 'Mars',
-    options: ['Earth', 'Mars', 'Jupiter', 'Venus'],
+    question: 'Qual planeta é conhecido como o Planeta Vermelho?',
+    correctAnswer: 'Marte',
+    options: ['Terra', 'Marte', 'Júpiter', 'Vênus'],
   },
   {
-    question: 'What is the largest mammal in the world?',
-    correctAnswer: 'Blue Whale',
-    options: ['Elephant', 'Blue Whale', 'Giraffe', 'Shark'],
+    question: 'Qual é o maior mamífero do mundo?',
+    correctAnswer: 'Baleia Azul',
+    options: ['Elefante', 'Baleia Azul', 'Girafa', 'Tubarão'],
   },
   {
-    question: 'Which language is primarily spoken in Brazil?',
-    correctAnswer: 'Portuguese',
-    options: ['Spanish', 'Portuguese', 'French', 'English'],
+    question: 'Qual idioma é falado principalmente no Brasil?',
+    correctAnswer: 'Português',
+    options: ['Espanhol', 'Português', 'Francês', 'Inglês'],
   },
   {
-    question: 'What is the capital city of Japan?',
-    correctAnswer: 'Tokyo',
-    options: ['Osaka', 'Kyoto', 'Tokyo', 'Nagoya'],
+    question: 'Qual é a capital do Japão?',
+    correctAnswer: 'Tóquio',
+    options: ['Osaka', 'Quioto', 'Tóquio', 'Nagoya'],
   },
   {
-    question: 'Which element has the chemical symbol "O"?',
-    correctAnswer: 'Oxygen',
-    options: ['Osmium', 'Oxygen', 'Gold', 'Silver'],
+    question: 'Qual elemento tem o símbolo químico "O"?',
+    correctAnswer: 'Oxigênio',
+    options: ['Ósmio', 'Oxigênio', 'Ouro', 'Prata'],
   },
+  
 ];
 
 const QuizGameTwo = () => {
@@ -74,7 +75,8 @@ const QuizGameTwo = () => {
     setShowModal(false);
   };
   const shareScore = () => {
-    const shareText = `I scored ${score}% in the Fill in the Blanks Game! 🎉`;
+    const shareText = `Eu acertei ${score}% no jogo Preencher as Lacunas! 🎉`;
+
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(shareText);
 
@@ -91,7 +93,7 @@ const QuizGameTwo = () => {
       <div className=" w-full h-full flex flex-col rounded-lg">
         <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
           <p className="font-bold lg:text-[20px] text-black">
-            Play and Win{" "}
+            Jogue e Ganhe{" "}
             <img
               src="/student/bulb.png"
               className="inline-block my-auto"
@@ -100,7 +102,7 @@ const QuizGameTwo = () => {
           </p>
 
           <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
-            Total Score: 0
+            Pontuação Total: 0
           </p>
         </div>
         {/* Progress Bar */}
@@ -143,9 +145,10 @@ const QuizGameTwo = () => {
           className="bg-main-dark text-white py-2 px-4 rounded mt-4 w-full"
           disabled={!selectedAnswer}
         >
-          {currentQuestionIndex + 1 < questionsData.length
-            ? 'Next Question'
-            : 'Finish'}
+      {currentQuestionIndex + 1 < questionsData.length
+  ? 'Próxima Pergunta'
+  : 'Finalizar'}
+
         </button>
 
 
@@ -174,16 +177,16 @@ const QuizGameTwo = () => {
 
               <div className="w-full flex flex-col items-center '">
                 <p className="text-main-dark font-bold text-3xl">
-                  Congratulations
+                Parabéns
                 </p>
-                <p className="text-xl m-1 text-[#545454] font-semibold">{`${score } out of 5 correct!`}</p>
+                <p className="text-xl m-1 text-[#545454] font-semibold">{`${score } de 5 acertos!`}</p>
                 <p className="text-center ">
-                  You've now entered into the GRAND PRIZE of 1 bottle of your
-                  choice during tonight's party!...
+                Agora você entrou na disputa pelo GRANDE PRÊMIO de 1 garrafa da sua
+                escolha durante a festa de hoje à noite!...
                 </p>
               </div>
               <p className="text-main-dark font-semibold text-2xl ">
-                Your score
+                Sua pontuação
               </p>
               <p className="text-main-dark font-semibold text-5xl -mt-1">
                 {score}
@@ -202,7 +205,7 @@ const QuizGameTwo = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg  text-center">
               <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
               <p className="mb-4">
-                Your Score: {score} / {questionsData.length}
+                Sua pontuação: {score} / {questionsData.length}
               </p>
               <button
                 onClick={handleReset}

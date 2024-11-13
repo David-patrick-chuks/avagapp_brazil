@@ -1,12 +1,12 @@
 
+import { Dialog } from '@material-tailwind/react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DragnDrop from './games/DragnDrop';
 import FillGap from './games/FillGap';
-import SQuiz from './games/SQuiz';
 import MatchColoum from './games/MatchColoum';
+import SQuiz from './games/SQuiz';
 import Wordhunt from './games/Wordhunt';
-import { Dialog } from '@material-tailwind/react';
 function StudentGame() {
 
     const [open, setOpen] = useState(false);
@@ -50,7 +50,7 @@ function StudentGame() {
                         <p className='text-xl m-1 text-[#545454] font-semibold'>2 out of 4 correct</p>
                         <p className='text-center '>You are now entered into the GRAND PRIZE of 1 bottle of your choice during tonight's party!...</p>
                     </div>
-                    <p className="text-main-dark font-semibold text-2xl ">Your score</p>
+                    <p className="text-main-dark font-semibold text-2xl ">Sua pontuação</p>
                     <p className="text-main-dark font-semibold text-5xl -mt-1">80</p>
 
                     <p className='cursor-pointer' onClick={handleOpen}>

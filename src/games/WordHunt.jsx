@@ -1,22 +1,22 @@
 import { Dialog } from '@material-tailwind/react';
 import React, { useEffect, useState } from 'react';
 import Confetti from "react-confetti";
-import { FaCheckCircle } from 'react-icons/fa';
 
 // Array of words and questions
 const words = [
-  "APPLE", "BANANA", "ORANGE", "GRAPE",
-  "MANGO", "PEAR", "KIWI", "APPLE",
-  "CHERRY", "LEMON", "GRAPE", "LEMON",
-  "BANANA", "PLUM", "KIWI", "APPLE"
+  "MAÇÃ", "BANANA", "LARANJA", "UVA",
+  "MANGA", "PERA", "KIWI", "MAÇÃ",
+  "CEREJA", "LIMÃO", "UVA", "LIMÃO",
+  "BANANA", "AMEIXA", "KIWI", "MAÇÃ"
 ];
 
+
 const questions = [
-  { word: "APPLE", answer: 3 },
+  { word: "MAÇÃ", answer: 3 },
   { word: "BANANA", answer: 2 },
-  { word: "ORANGE", answer: 1 },
-  { word: "GRAPE", answer: 2 },
-  { word: "MANGO", answer: 1 }
+  { word: "LARANJA", answer: 1 },
+  { word: "UVA", answer: 2 },
+  { word: "MANGA", answer: 1 }
 ];
 
 const WordHuntGame = () => {
@@ -101,17 +101,18 @@ const WordHuntGame = () => {
   useEffect(() => {
     generateBentoGrid();
     // setcurrentQuestion(questions[currentPhase])
-  
+
   }, [currentPhase])
-  
+
   // const bentoGrid = generateBentoGrid();
-  
- 
+
+
 
 
 
   const shareScore = () => {
-    const shareText = `I scored ${finalScore}% in the Fill in the Blanks Game! 🎉`;
+    const shareText = `Eu acertei ${finalScore}% no Jogo de Preencher os Espaços! 🎉`;
+
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(shareText);
 
@@ -127,7 +128,7 @@ const WordHuntGame = () => {
     <div className="p-6 bg-main-light">
       <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
         <p className="font-bold lg:text-[20px] text-black">
-          Play and Win{" "}
+          Jogue e Ganhe{" "}
           <img
             src="/student/bulb.png"
             className="inline-block my-auto"
@@ -136,7 +137,7 @@ const WordHuntGame = () => {
         </p>
 
         <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
-          Total Score: 0
+          Pontuação Total: 0
         </p>
       </div>
       <div className="mt-6">
@@ -151,9 +152,10 @@ const WordHuntGame = () => {
       {/* <h2 className="text-3xl font-bold text-center text-indigo-600 mb-6">Word Hunt Game</h2> */}
 
       {/* Bento Grid */}
-      <h3 className="text-2xl text-center py-3  font-semibold text-black">
-        How many times does the word <strong>{currentQuestion?.word}</strong> appear in the board?
+      <h3 className="text-2xl text-center py-3 font-semibold text-black">
+        Quantas vezes a palavra <strong>{currentQuestion?.word}</strong> aparece no tabuleiro?
       </h3>
+
 
       <div className="mb-4 place-content-center place-items-center  grid grid-cols-2 lg:grid-cols-3">
 
@@ -173,7 +175,7 @@ const WordHuntGame = () => {
               disabled={inputValues[currentPhase] === ''}
               className={`p-2 text-white rounded-lg bg-green-500 hover:bg-green-600 place-self-center ${inputValues[currentPhase] === '' ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-              Submit
+              Enviar
             </button>
           ) : (
             <button
@@ -181,7 +183,7 @@ const WordHuntGame = () => {
               disabled={inputValues[currentPhase] === ''}
               className={`p-2 place-self-center text-white rounded-lg bg-blue-500 hover:bg-blue-600 ${inputValues[currentPhase] === '' ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-              Next Question
+              Próxima Pergunta
             </button>
           )}
         </div>
@@ -236,16 +238,17 @@ const WordHuntGame = () => {
 
               <div className="w-full flex flex-col items-center '">
                 <p className="text-main-dark font-bold text-3xl">
-                  Congratulations
+                  Parabéns
                 </p>
-                <p className="text-xl m-1 text-[#545454] font-semibold">{`${correctAnswers} out of ${questions.length} correct!`}</p>
+                <p className="text-xl m-1 text-[#545454] font-semibold">{`${correctAnswers} de ${questions.length} acertos!`}</p>
+
                 <p className="text-center ">
-                  You've now entered into the GRAND PRIZE of 1 bottle of your
-                  choice during tonight's party!...
+                  Agora você entrou na disputa pelo GRANDE PRÊMIO de 1 garrafa da sua
+                  escolha durante a festa de hoje à noite!...
                 </p>
               </div>
               <p className="text-main-dark font-semibold text-2xl ">
-                Your score
+                Sua pontuação
               </p>
               <p className="text-main-dark font-semibold text-5xl -mt-1">
                 {finalScore}
@@ -259,7 +262,7 @@ const WordHuntGame = () => {
         </>
       )}
 
- 
+
     </div>
   );
 };

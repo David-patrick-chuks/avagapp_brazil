@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useDrag, useDrop, DndProvider } from 'react-dnd';
+import { Dialog } from '@material-tailwind/react';
+import { MultiBackend, TouchTransition } from 'dnd-multi-backend';
+import React, { useEffect, useState } from 'react';
+import Confetti from "react-confetti";
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
-import  {MultiBackend, TouchTransition } from 'dnd-multi-backend';
 
 
 const HTML5toTouch = {
@@ -18,8 +20,6 @@ const HTML5toTouch = {
     },
   ],
 };
-import Confetti from "react-confetti";
-import { Dialog } from '@material-tailwind/react';
 const DndElemet = () => {
   const [score, setScore] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -35,11 +35,11 @@ const DndElemet = () => {
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
 
   const questions = [
-    { question: 'What is the symbol for Carbon?', correctAnswer: 'C', options: ['C', 'Au', 'H', 'Na'] },
-    { question: 'What is the symbol for Gold?', correctAnswer: 'Au', options: ['H', 'Au', 'Na', 'C'] },
-    { question: 'What is the symbol for Hydrogen?', correctAnswer: 'H', options: ['H', 'Na', 'C', 'Au'] },
-    { question: 'What is the symbol for Sodium?', correctAnswer: 'Na', options: ['Na', 'C', 'H', 'Au'] },
-    { question: 'What is the symbol for Oxygen?', correctAnswer: 'O', options: ['O', 'N', 'Fe', 'H'] },
+    { question: 'Qual é o símbolo de Carbon?', correctAnswer: 'C', options: ['C', 'Au', 'H', 'Na'] },
+    { question: 'Qual é o símbolo de Gold?', correctAnswer: 'Au', options: ['H', 'Au', 'Na', 'C'] },
+    { question: 'Qual é o símbolo de Hydrogen?', correctAnswer: 'H', options: ['H', 'Na', 'C', 'Au'] },
+    { question: 'Qual é o símbolo de Sodium?', correctAnswer: 'Na', options: ['Na', 'C', 'H', 'Au'] },
+    { question: 'Qual é o símbolo de Oxygen?', correctAnswer: 'O', options: ['O', 'N', 'Fe', 'H'] },
   ];
 
   const getRandomGradient = () => {
@@ -109,7 +109,8 @@ const DndElemet = () => {
         } ${currentAnswer ? 'bg-blue-200' : 'bg-white'}`}
         onClick={() => onClick(currentAnswer)}
       >
-        {currentAnswer ? currentAnswer : (<h1 className='text-2xl'>Drop the correct answer here</h1>)}
+        {currentAnswer ? currentAnswer : (<h1 className='text-2xl'>Solte a resposta correta aqui</h1>)}
+
       </div>
     );
   };
@@ -211,7 +212,8 @@ const DndElemet = () => {
   );
 
   const shareScore = () => {
-    const shareText = `I scored ${calculateTotalScore()}% in the Fill in the Blanks Game! 🎉`;
+    const shareText = `Eu acertei ${calculateTotalScore()}% no Jogo de Preencher os Espaços! 🎉`;
+
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(shareText);
     window.open(
@@ -226,7 +228,7 @@ const DndElemet = () => {
         <div className=" w-full bg-white rounded-lg p-8 space-y-6 ">
         <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
             <p className="font-bold lg:text-[20px] text-black">
-              Play and Win{" "}
+              Jogue e Ganhe{" "}
               <img
                 src="/student/bulb.png"
                 className="inline-block my-auto"
@@ -235,7 +237,7 @@ const DndElemet = () => {
             </p>
 
             <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
-              Total Score: 0
+              Pontuação Total: 0
             </p>
           </div>
       
@@ -282,8 +284,7 @@ const DndElemet = () => {
               className={`${
                 !answer ? ' cursor-not-allowed bg-blue-300/50' : 'bg-blue-600 hover:bg-blue-700'
               } text-white py-2 px-8 rounded`}
-            >
-              Next
+            > Próximo
             </button>
           </div>
           {showModal && (
@@ -311,16 +312,16 @@ const DndElemet = () => {
 
               <div className="w-full flex flex-col items-center '">
                 <p className="text-main-dark font-bold text-3xl">
-                  Congratulations
+                Parabéns
                 </p>
-                <p className="text-xl m-1 text-[#545454] font-semibold">{`${correctAnswersCount()} out of ${questionsData.length} correct!`}</p>
+                <p className="text-xl m-1 text-[#545454] font-semibold">{`${correctAnswersCount()} de ${questionsData.length} acertos!`}</p>
                 <p className="text-center ">
-                  You've now entered into the GRAND PRIZE of 1 bottle of your
-                  choice during tonight's party!...
+                Agora você entrou na disputa pelo GRANDE PRÊMIO de 1 garrafa da sua
+                escolha durante a festa de hoje à noite!...
                 </p>
               </div>
               <p className="text-main-dark font-semibold text-2xl ">
-                Your score
+                Sua pontuação
               </p>
               <p className="text-main-dark font-semibold text-5xl -mt-1">
                 {calculateTotalScore()}

@@ -42,7 +42,7 @@ function Ranking() {
   return (
     <div className="pt-2 px-3 overflow-hidden lg:px-0">
 
-      <p className='font-bold text-[23px] text-black'>Leaderboard</p>
+      <p className='font-bold text-[23px] text-black'>Ranking</p>
 
 
       <div className='flex justify-between  px-10  items-center text-black/50'>
@@ -56,7 +56,7 @@ function Ranking() {
           <input
             type="text"
             autoComplete="off"
-            placeholder="Search"
+            placeholder="Pesquisar aqui"
             className="text-accent 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-accent border-none active:border-none outline-none rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4 text-black"
             id="name"
           />
@@ -152,15 +152,15 @@ function Ranking() {
                         <ListItemPrefix >
                           <IoEyeOutline />
                         </ListItemPrefix>
-                        View
+                        Ver
 
                       </ListItem >
                         <ListItem className=" w-[120px]   text-xs"> <ListItemPrefix >
                           <GoPencil />
-                        </ListItemPrefix>Edit</ListItem>
+                        </ListItemPrefix>Editar</ListItem>
                         <ListItem onClick={ () => deleteData(index)}  className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                           <BsFillTrashFill />
-                        </ListItemPrefix>Delete</ListItem>
+                        </ListItemPrefix>Excluir</ListItem>
                       </List>
                     </Card>
 
@@ -174,7 +174,7 @@ function Ranking() {
       </Card>
       <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
         <Typography variant="small" color="blue-gray" className="font-normal">
-          Page {currentPage} of {totalPages}
+        Página {currentPage} de {totalPages}
         </Typography>
         <div className="flex gap-2">
           <Button
@@ -183,7 +183,7 @@ function Ranking() {
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
-            Prev
+            Anterior
           </Button>
           <Button
             variant="outlined"
@@ -191,7 +191,7 @@ function Ranking() {
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
-            Next
+            Próxima
           </Button>
         </div>
       </CardFooter>

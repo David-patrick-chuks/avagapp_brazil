@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import { FaCheckCircle } from "react-icons/fa";
-import Confetti from "react-confetti";
 import { Dialog } from "@material-tailwind/react";
+import Confetti from "react-confetti";
 const questionsData = [
   {
-    question: "Plants require water, sunlight, and ___ to survive.",
+    question: "As plantas precisam de água, luz solar e ___ para sobreviver.",
     answer: "co2",
   },
   {
-    question: "The Earth revolves around the ___ in our solar system.",
-    answer: "sun",
+    question: "A Terra gira ao redor do ___ no nosso sistema solar.",
+    answer: "sol",
   },
-  { question: "The chemical symbol for water is ___", answer: "h2o" },
+  { question: "O símbolo químico da água é ___", answer: "h2o" },
   {
     question:
-      "The process of converting light energy into chemical energy by plants is called ___.",
-    answer: "photosynthesis",
+      "O processo de conversão de energia luminosa em energia química pelas plantas é chamado de ___.",
+    answer: "fotossíntese",
   },
-  { question: "Humans breathe in oxygen and breathe out ___.", answer: "co2" },
+  { question: "Os humanos respiram oxigênio e exalam ___.", answer: "co2" },
   {
-    question: "Sound travels fastest in ___ (solid, liquid, gas).",
-    answer: "solid",
+    question: "O som viaja mais rápido em ___ (sólido, líquido, gasoso).",
+    answer: "sólido",
   },
 ];
+
 
 function FillGame() {
   const [questions, setQuestions] = useState([]);
@@ -112,7 +112,8 @@ function FillGame() {
   const scorePercentage = (correctAnswersCount / results.length) * 100;
 
   const shareScore = () => {
-    const shareText = `I scored ${scorePercentage}% in the Fill in the Blanks Game! 🎉`;
+    const shareText = `Eu acertei ${scorePercentage}% no Jogo de Preencher os Espaços! 🎉`;
+
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(shareText);
 
@@ -128,7 +129,7 @@ function FillGame() {
     <div className="flex flex-col w-full items-center justify-center  p-5">
       <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
         <p className="font-bold lg:text-[20px] text-black">
-          Play and Win{" "}
+          Jogue e Ganhe{" "}
           <img
             src="/student/bulb.png"
             className="inline-block my-auto"
@@ -137,7 +138,7 @@ function FillGame() {
         </p>
 
         <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
-          Total Score: 0
+          Pontuação Total: 0
         </p>
       </div>
       <div className=" rounded-lg p-8  w-full">
@@ -195,7 +196,7 @@ function FillGame() {
             userAnswer.length !== questions[currentQuestionIndex]?.answer.length
           }
         >
-          Submit Answer
+         Enviar Resposta
         </button>
       </div>
 
@@ -224,16 +225,16 @@ function FillGame() {
 
               <div className="w-full flex flex-col items-center '">
                 <p className="text-main-dark font-bold text-3xl">
-                  Congratulations
+                Parabéns
                 </p>
                 <p className="text-xl m-1 text-[#545454] font-semibold">{`${correctAnswersCount} out of ${results.length} correct!`}</p>
                 <p className="text-center ">
-                  You've now entered into the GRAND PRIZE of 1 bottle of your
-                  choice during tonight's party!...
+                Agora você entrou na disputa pelo GRANDE PRÊMIO de 1 garrafa da sua
+                escolha durante a festa de hoje à noite!...
                 </p>
               </div>
               <p className="text-main-dark font-semibold text-2xl ">
-                Your score
+                Sua pontuação
               </p>
               <p className="text-main-dark font-semibold text-5xl -mt-1">
                 {scorePercentage}

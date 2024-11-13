@@ -73,7 +73,7 @@ function Generate() {
             <div className='flex justify-between p-2 items-center text-white'>
                 <p className='font-bold lg:text-[28px] w-full  text-black'>Certificate Generation</p>
 
-                <p onClick={handleGenerate} className='flex text-sm justify-center w-full lg:w-[15%] cursor-pointer p-2 lg:p-[10px] items-center rounded-2xl gap-2 bg-main-dark'><RiAiGenerate /> Generate all</p>
+                <p onClick={handleGenerate} className='flex text-sm justify-center w-full lg:w-[15%] cursor-pointer p-2 lg:p-[10px] items-center rounded-2xl gap-2 bg-main-dark'><RiAiGenerate /> Gerar tudo</p>
             </div>
 
             <Dialog
@@ -90,12 +90,12 @@ function Generate() {
                     <img src="/teacher/pdf.png" className="w-[50%]" />
 
                     <div className="w-full flex flex-col items-center justify-center'">
-                        <p className="text-main-dark font-semibold text-2xl">Congratulations</p>
-                        <p className="text-center">Congratulation Your Certification Generate Successfully</p>
+                        <p className="text-main-dark font-semibold text-2xl">Parabéns</p>
+                        <p className="text-center">Parabéns! Seu Certificado foi Gerado com Sucesso</p>
                     </div>
 
                     <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
-                        Export as PDF
+                    Exportar como PDF
                     </p>
                 </div>
 
@@ -186,13 +186,13 @@ function Generate() {
                                                 <ListItemPrefix >
                                                     <RiAiGenerate />
                                                 </ListItemPrefix>
-                                                Generate
+                                                Gerar
 
                                             </ListItem >
 
                                                 <ListItem onClick={() => deleteData(index)} className=" text-xs w-[120px] font-semibold "> <ListItemPrefix >
                                                     <BsFillTrashFill />
-                                                </ListItemPrefix>Delete</ListItem>
+                                                </ListItemPrefix>Excluir</ListItem>
                                             </List>
                                         </Card>
 
@@ -206,7 +206,7 @@ function Generate() {
             </Card>
             <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal">
-                    Page {currentPage} of {totalPages}
+                Página {currentPage} de {totalPages}
                 </Typography>
                 <div className="flex gap-2">
                     <Button
@@ -215,16 +215,16 @@ function Generate() {
                         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
                     >
-                        Prev
-                    </Button>
+                        Anterior
+            </Button>
                     <Button
                         variant="outlined"
                         size="sm"
                         onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
                     >
-                        Next
-                    </Button>
+                        Próxima
+            </Button>
                 </div>
             </CardFooter>
         </div>

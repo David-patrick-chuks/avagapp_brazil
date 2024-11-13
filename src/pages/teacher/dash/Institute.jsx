@@ -22,12 +22,12 @@ function Institute() {
     return (
         <div className='flex pt-5 px-3 flex-col gap-2'>
             <div className='flex justify-between p-2 items-center text-white'>
-                <p className='font-bold lg:text-[24px] text-black'>Institutor List</p>
+                <p className='font-bold lg:text-[24px] text-black'>Lista de Instituidores</p>
                 <div className="flex text-accent items-center justify-center lg:w-[25%] gap-4">
           <input
             type="text"
             autoComplete="off"
-            placeholder="Search"
+            placeholder="Pesquisar aqui"
             className="text-accent 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-accent border-none active:border-none outline-none rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4 text-black"
             id="name"
           />
@@ -126,7 +126,7 @@ function Institute() {
             </Card>
   <CardFooter className="flex items-center justify-between w-full border-t border-blue-gray-50 p-4">
         <Typography variant="small" color="blue-gray" className="font-normal">
-          Page {currentPage} of {totalPages}
+        Página {currentPage} de {totalPages}
         </Typography>
         <div className="flex gap-2">
           <Button
@@ -135,7 +135,7 @@ function Institute() {
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
-            Prev
+            Anterior
           </Button>
           <Button
             variant="outlined"
@@ -143,7 +143,7 @@ function Institute() {
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
-            Next
+            Próxima
           </Button>
         </div>
       </CardFooter>

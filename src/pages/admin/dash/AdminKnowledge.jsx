@@ -42,10 +42,10 @@ function AdminKnowledge() {
                             <img src="/teacher/react.png" className="rounded-full size-14 bg-main-light p-2 absolute -right-2 -top-2 " />
                             <img src={`/teacher/course${item}.png`} alt="" />
                             <p className='flex justify-between items-end text-lg font-semibold'>
-                                <span>Physics</span>
+                                <span>Física</span>
                                 <BsThreeDotsVertical onClick={() => toogleEdit(index)} size={15} className=' rotate-90' />
                             </p>
-                            <span className='-mt-1 text-sm text-black/50 '>Assigned by Sir Haseeb</span>
+                            <span className='-mt-1 text-sm text-black/50 '>Atribuído por Sir Haseeb</span>
                             <Card onClick={() => toogleEdit(index)} className={` ${identifier === index ? "block" : "hidden"} right-10 -bottom-20 z-50 absolute w-[135px]`}>
                                 <List className="w-[120px] text-xs "> <ListItem className="text-xs w-[120px]  ">
                                     <ListItemPrefix >
@@ -77,10 +77,10 @@ function AdminKnowledge() {
                             <img src="/teacher/react.png" className="rounded-full size-14 bg-main-light p-2 absolute -right-2 -top-2 " />
                             <img src={`/teacher/course${item}.png`} alt="" />
                             <p className='flex justify-between items-end text-lg font-semibold'>
-                                <span>Physics</span>
+                                <span>Física</span>
                                 <BsThreeDotsVertical onClick={() => toogleEdit(index + 10)} size={15} className=' rotate-90' />
                             </p>
-                            <span className='-mt-1 text-sm text-black/50 '>Assigned by Sir Haseeb</span>
+                            <span className='-mt-1 text-sm text-black/50 '>Atribuído por Sir Haseeb</span>
                             <Card onClick={() => toogleEdit(index + 10)} className={` ${identifier === index + 10 ? "block" : "hidden"} right-10 -bottom-10 z-50 absolute w-[135px]`}>
                                 <List className="w-[120px] text-xs "> <ListItem className="text-xs w-[120px]  ">
                                     <ListItemPrefix >
