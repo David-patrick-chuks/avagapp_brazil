@@ -89,7 +89,7 @@ function TSetting() {
               <textarea
                 style={{ resize: "none" }} rows={5} type="text" autoComplete='off' placeholder='(Por favor, compartilhe sua sugestão)' className='text-[#545454]  2xl:px-[18px] mt-2 lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-[#545454] border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4 ' id='name' />
             </label>
-            <p className='font-bold mb-2 rounded-lg text-center p-2 text-base lg:text-[22px] bg-main-dark text-white' onClick={() => setForm(prev => !prev)} >Submit Feedback</p>
+            <p className='font-bold mb-2 rounded-lg text-center p-2 text-base lg:text-[22px] bg-main-dark text-white' onClick={() => setForm(prev => !prev)} >Enviar Feedback</p>
 
           </div>
 
