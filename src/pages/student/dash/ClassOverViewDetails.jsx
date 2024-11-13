@@ -13,6 +13,7 @@ function ClassOverViewDetails() {
     const check = location.pathname.includes("/teacher/dashboard")
     // console.log("Checking if route matches teacher route", check);
     const [open, setOpen] = useState(false);
+    const [generate, setGenerate] = useState(false);
 
     const handleOpen = () => {
 
@@ -62,10 +63,38 @@ function ClassOverViewDetails() {
         <div className='p-3 flex gap-3 flex-col pt-5 pr-10'>
 
 {
+    generate && (    <Dialog
+        open={generate}
+        handler={ ()=>setGenerate(prev => !prev)}
+        size="xs"
+        animate={{
+            mount: { scale: 1, y: 0 },
+            unmount: { scale: 0.9, y: -100 },
+        }}
+        className="border-2 border-main-dark"
+    >
+        <div className='2xl:p-[30px]  justify-center items-center font-num w-[100%]  p-4 lg:p-5 flex flex-col gap-[18px] rounded-xl 2xl:rounded-3xl  bg-main-light'>
+            <img src="/teacher/pdf.png" className="w-[50%]" />
+
+            <div className="w-full flex flex-col items-center justify-center'">
+                <p className="text-main-dark font-semibold text-2xl">Congratulations</p>
+                <p className="text-center">Congratulation Your Certification Generate Successfully</p>
+            </div>
+
+            <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
+                Export as PDF
+            </p>
+        </div>
+
+    </Dialog>
+)
+}
+
+{
     check ? (null) : (
         <Dialog
             open={open}
-            handler={handleOpen}
+            handler={ ()=>setGenerate(prev => !prev)}
             size="xs"
             animate={{
                 mount: { scale: 1, y: 0 },
@@ -83,7 +112,7 @@ function ClassOverViewDetails() {
                     </p>
                 </div>
 
-                <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
+                <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={ ()=>setGenerate(prev => !prev)}>
                 Generate Certificate
                 </p>
             </div>

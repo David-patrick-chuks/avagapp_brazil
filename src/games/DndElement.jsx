@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import  {MultiBackend, TouchTransition } from 'dnd-multi-backend';
 
+
+const HTML5toTouch = {
+  backends: [
+    {
+      backend: HTML5Backend,
+    },
+    {
+      backend: TouchBackend,
+      options: { enableMouseEvents: true },
+      preview: true,
+      transition: TouchTransition,
+    },
+  ],
+};
 import Confetti from "react-confetti";
 import { Dialog } from '@material-tailwind/react';
 const DndElemet = () => {
@@ -205,7 +221,7 @@ const DndElemet = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={MultiBackend} options={HTML5toTouch}>
       <div className=" flex items-center w-full h-full justify-center  lg:p-6">
         <div className=" w-full bg-white rounded-lg p-8 space-y-6 ">
         <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">

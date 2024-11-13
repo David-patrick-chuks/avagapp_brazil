@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import  {MultiBackend, TouchTransition } from 'dnd-multi-backend';
+
+
+const HTML5toTouch = {
+  backends: [
+    {
+      backend: HTML5Backend,
+    },
+    {
+      backend: TouchBackend,
+      options: { enableMouseEvents: true },
+      preview: true,
+      transition: TouchTransition,
+    },
+  ],
+};
 import Confetti from 'react-confetti';
 import { Dialog } from '@material-tailwind/react';
 
@@ -122,7 +138,7 @@ const GameThree = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={MultiBackend} options={HTML5toTouch}>
       <div className="w-full h-full flex items-center justify-center p-6">
 
 
