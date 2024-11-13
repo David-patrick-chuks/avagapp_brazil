@@ -12,7 +12,7 @@ function TSetting() {
   const [form, setForm] = useState(false)
 
   return (
-    <div className='flex overflow-x-hidden cursor-pointer flex-col py-3  px-2 gap-4'>
+    <div className='flex overflow-x-hidden bg-main-light cursor-pointer flex-col py-3  px-2 gap-4'>
 
       <Link to={"/student/dashboard/student-profile"} className='flex  flex-col p-2 '>
         <header className='flex font-semibold text-lg'>User Profile Settings </header>
