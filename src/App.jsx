@@ -64,7 +64,7 @@ function App() {
             <Route path="student-ranking" element={<Ranking />} />
             <Route path="student-profile" element={<StudentProfile />} />
 
-            <Route path="student-game/:gameType/:gameCreate" element={<StudentGame />} />
+            {/* <Route path="student-game/:gameType/:gameCreate" element={<StudentGame />} /> */}
 
             <Route path="student-game" element={<Game />} />
             <Route path="student-game/:gameType" element={<StudentGameDetails />} />
