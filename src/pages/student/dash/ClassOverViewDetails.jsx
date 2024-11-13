@@ -81,7 +81,7 @@ function ClassOverViewDetails() {
                 <p className="text-center">Congratulation Your Certification Generate Successfully</p>
             </div>
 
-            <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
+            <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={ ()=>setGenerate(prev => !prev)}>
                 Export as PDF
             </p>
         </div>
@@ -94,7 +94,7 @@ function ClassOverViewDetails() {
     check ? (null) : (
         <Dialog
             open={open}
-            handler={ ()=>setGenerate(prev => !prev)}
+            // handler={ ()=>setGenerate(prev => !prev)}
             size="xs"
             animate={{
                 mount: { scale: 1, y: 0 },
@@ -112,7 +112,7 @@ function ClassOverViewDetails() {
                     </p>
                 </div>
 
-                <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={ ()=>setGenerate(prev => !prev)}>
+                <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={ ()=>{ setOpen(false), setGenerate(prev => !prev)}}>
                 Generate Certificate
                 </p>
             </div>
