@@ -95,7 +95,7 @@ function FillGame() {
   }, [userAnswer, currentQuestionIndex]);
 
   const resetGame = () => {
-    
+
     setCurrentQuestionIndex(0);
     setResults([]);
     setProgress(0);
@@ -115,9 +115,9 @@ function FillGame() {
     const shareText = `I scored ${scorePercentage}% in the Fill in the Blanks Game! 🎉`;
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(shareText);
-  
+
     setOpen((prev) => !prev);
-    
+
     window.open(
       `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
       "_blank"
@@ -125,7 +125,7 @@ function FillGame() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  p-5">
+    <div className="flex flex-col w-full items-center justify-center  p-5">
       <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
         <p className="font-bold lg:text-[20px] text-black">
           Play and Win{" "}
@@ -140,10 +140,10 @@ function FillGame() {
           Total Score: 0
         </p>
       </div>
-      <div className=" rounded-lg p-8 max-w-md w-full">
-        <h1 className="text-2xl font-bold mb-4 text-start">
+      <div className=" rounded-lg p-8  w-full">
+        {/* <h1 className="text-2xl font-bold mb-4 text-start">
           Fill in the Blanks Game
-        </h1>
+        </h1> */}
         <div className="w-full flex  bg-gray-300 rounded-full h-4 mb-6">
           <div
             className="bg-main-dark h-4 rounded-full transition-all duration-500"
@@ -171,7 +171,7 @@ function FillGame() {
                       1 && (
                         <input
                           type="text"
-                          className="border-b-2 font-semibold border-gray-400 outline-none mx-1 w-16 text-center"
+                          className="border-b-2 font-semibold border-gray-400 outline-none mx-1 w-24 text-center"
                           maxLength={
                             questions[currentQuestionIndex].answer.length
                           }
@@ -187,8 +187,8 @@ function FillGame() {
 
         <button
           className={`bg-blue-500 mt-10 text-white py-2 px-4 rounded ${userAnswer.length !== questions[currentQuestionIndex]?.answer.length
-              ? "opacity-50 cursor-not-allowed"
-              : ""
+            ? "opacity-50 cursor-not-allowed"
+            : ""
             }`}
           onClick={handleSubmit}
           disabled={
@@ -205,16 +205,8 @@ function FillGame() {
             width={window.innerWidth}
             height={window.innerHeight}
             tweenDuration={5000}
-            // opacity={0.5}
-            // recycle={false}
             numberOfPieces={300}
-            // initialVelocityX={5}
-            // initialVelocityY={10}
-            // gravity={0.3}
-            // confettiSource={{ x: window.innerWidth / 2, y: 0 }}
-            // friction={0.99}
             wind={0.01}
-          // colors={["#FF9800", "#FFC107", "#4CAF50", "#2196F3", "#FF5722"]}
           />
           <Dialog
             open={showModal}
@@ -251,26 +243,6 @@ function FillGame() {
                 <img src="/student/social.png" className="w-28 h-fit" alt="" />
               </p>
             </div>
-
-            {/* <div className="bg-white p-4  lg:p-8 rounded-lg shadow-lg flex justify-center items-center flex-col  w-full ">
-              <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
-              <p className="mb-4">{`${correctAnswersCount} out of ${results.length} correct!`}</p>
-              <p className="mb-4">Your Score: {scorePercentage}%</p>
-
-              <button
-                className="bg-blue-500 text-white py-2 px-4 rounded mr-2"
-                onClick={resetGame}
-              >
-                Play Again
-              </button>
-              <button
-                className="bg-green-500 text-white py-2 px-4 rounded"
-                onClick={shareScore}
-              >
-                Share Score
-              </button>
-            </div>
-          */}
           </Dialog>
         </>
       )}

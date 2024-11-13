@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Confetti from 'react-confetti';
+import { Dialog } from '@material-tailwind/react';
 
 const reorderQuestions = [
   {
@@ -31,7 +32,7 @@ const reorderQuestions = [
   },
 ];
 
-const TSetting = () => {
+const GameThree = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userOrder, setUserOrder] = useState([]);
@@ -67,7 +68,7 @@ const TSetting = () => {
     return (
       <div
         ref={(node) => drag(drop(node))}
-        className="cursor-pointer p-4 bg-blue-500 text-white text-center rounded-lg mb-2"
+        className="cursor-pointer p-4 bg-main-light text-main-dark font-bold border border-main-dark text-center rounded-lg mb-2"
       >
         {item}
       </div>
@@ -104,12 +105,43 @@ const TSetting = () => {
     setProgress(0);
     setShowModal(false);
   };
+  // const scorePercentage = (correctAnswersCount / results.length) * 100;
+  const scorePercentage = (score / questionsData.length) * 100;
+
+  const shareScore = () => {
+    const shareText = `I scored ${scorePercentage}% in the Fill in the Blanks Game! 🎉`;
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(shareText);
+
+    setOpen((prev) => !prev);
+
+    window.open(
+      `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
+      "_blank"
+    );
+  };
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-blue-100 p-6">
-        <div className="max-w-xl bg-white rounded-lg p-8 shadow-lg space-y-6">
+      <div className="w-full h-full flex items-center justify-center p-6">
+
+
+        <div className=" bg-white w-full rounded-lg p-8       space-y-6">
           {/* Progress Bar */}
+          <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
+            <p className="font-bold lg:text-[20px] text-black">
+              Play and Win{" "}
+              <img
+                src="/student/bulb.png"
+                className="inline-block my-auto"
+                alt=""
+              />
+            </p>
+
+            <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
+              Total Score: 0
+            </p>
+          </div>
           <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
             <div
               className="bg-green-500 h-4 rounded-full"
@@ -117,10 +149,10 @@ const TSetting = () => {
             ></div>
           </div>
 
-          <h2 className="text-2xl font-bold text-center text-blue-600">
+          {/* <h2 className="text-2xl font-bold text-center text-blue-600">
             Reorder the Items
-          </h2>
-          <p className="text-lg text-center text-gray-700 mb-4">
+          </h2> */}
+          <p className="text-2xl font-bold text-center text-blacl mb-4">
             {currentQuestion?.question}
           </p>
 
@@ -143,11 +175,57 @@ const TSetting = () => {
               ? 'Next Question'
               : 'Finish'}
           </button>
+          {showModal && (
+            <>
+              <Confetti
+                width={window.innerWidth}
+                height={window.innerHeight}
+                tweenDuration={5000}
+                numberOfPieces={300}
+                wind={0.01}
+              />
+              <Dialog
+                open={showModal}
+                handler={handleReset}
+                size="xs"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0.9, y: -100 },
+                }}
+                className="border-2 border-main-dark"
+                onClick={handleReset}
+              >
+                <div className="2xl:p-[30px]  justify-center items-center font-num w-[100%]  p-4 lg:p-5 flex flex-col gap-[18px] rounded-xl 2xl:rounded-3xl  bg-main-light">
+                  <img src="/student/congrat.png" className="w-[30%]" />
 
+                  <div className="w-full flex flex-col items-center '">
+                    <p className="text-main-dark font-bold text-3xl">
+                      Congratulations
+                    </p>
+                    <p className="text-xl m-1 text-[#545454] font-semibold">{`${score} out of ${questionsData.length} correct!`}</p>
+                    <p className="text-center ">
+                      You've now entered into the GRAND PRIZE of 1 bottle of your
+                      choice during tonight's party!...
+                    </p>
+                  </div>
+                  <p className="text-main-dark font-semibold text-2xl ">
+                    Your score
+                  </p>
+                  <p className="text-main-dark font-semibold text-5xl -mt-1">
+                    {scorePercentage}
+                  </p>
+
+                  <p className="cursor-pointer" >
+                    <img src="/student/social.png" onClick={shareScore} className="w-28 h-fit" alt="" />
+                  </p>
+                </div>
+              </Dialog>
+            </>
+          )}
           {showModal && (
             <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
               <Confetti />
-              <div className="bg-white p-8 rounded-lg shadow-lg max-w-md text-center">
+              <div className="bg-white p-8 rounded-lg shadow-lg  text-center">
                 <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
                 <p className="mb-4">Your Score: {score} / {questionsData.length}</p>
                 <button
@@ -165,4 +243,4 @@ const TSetting = () => {
   );
 };
 
-export default TSetting;
+export default GameThree;

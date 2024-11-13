@@ -89,8 +89,8 @@ function App() {
             <Route path="ranking" element={<AdminRanking />} />
 
             <Route path="game" element={<Game />} />
-            <Route path="game/:gameType" element={<GameDetails />} />
-            <Route path="game/:gameType/:gameCreate" element={<GameCreate />} />
+            <Route path="game/:gameType" element={<StudentGameDetails />} />
+            {/* <Route path="game/:gameType/:gameCreate" element={<GameCreate />} /> */}
             <Route path="setting" element={<TSetting />} />
 
           </Route>
@@ -117,8 +117,8 @@ function App() {
             </Route>
             <Route path="ranking" element={<Ranking />} />
             <Route path="game" element={<Game />} />
-            <Route path="game/:gameType" element={<GameDetails />} />
-            <Route path="game/:gameType/:gameCreate" element={<GameCreate />} />
+            <Route path="game/:gameType" element={<StudentGameDetails />} />
+            {/* <Route path="game/:gameType/:gameCreate" element={<GameCreate />} /> */}
             <Route path="setting" element={<TSetting />} />
             <Route path="knowledge/Know-details" element={<ClassOverViewDetails />} />
           </Route>

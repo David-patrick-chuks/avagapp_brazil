@@ -19,7 +19,7 @@ export function TNavBar() {
   const {toggleMobile} =useMobile()
     const [bell, setBell] =useState(false)
     return (
-      <div className="px-3 flex justify-between">
+      <div className="px-3 flex shadow justify-between">
         <div className="flex text-accent items-center justify-center w-[30%]">
         <CgMenuLeft onClick={toggleMobile} color="black" size={35} className="size-10 lg:hidden block"/>
           <input

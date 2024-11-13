@@ -1,15 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 const withMT = require("@material-tailwind/react/utils/withMT");
- 
-export default  withMT({
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+
+export default withMT({
+  content: ["./index.html", "./Games/**/*.{js,ts,jsx,tsx}","./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-num : ["Nunito", "sans-serif"]
+        num: ["Nunito", "sans-serif"],
       },
       colors: {
         main: {
@@ -21,19 +18,16 @@ num : ["Nunito", "sans-serif"]
           dark: "#000000",
         },
         baddo: "#COCOCO",
-        bg : "#FBFBFB",
-        input: "#F9F9F9"
+        bg: "#FBFBFB",
+        input: "#F9F9F9",
       },
     },
   },
   plugins: [],
-})
-
-
-
+});
 
 // const withMT = require("@material-tailwind/react/utils/withMT");
- 
+
 // module.exports = withMT({
 //   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
 //   theme: {

@@ -1,11 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import FillGame from "../../../../Games/fillGame";
-import QuizGameTwo from "../../../../Games/Game4";
+import QuizGameTwo from "../../../games/GameFour";
+import FillGame from "../../../games/FillGame";
+import DndElemet from "../../../games/DndElement";
+import GameThree from "../../../games/GameThree";
+import WordHuntGame from "../../../games/WordHunt";
+
 
 function StudentGameDetails() {
   const { gameType } = useParams();
-  console.log(gameType);
+  // console.log(gameType);
 
   if (gameType === "fillInTheBlank") {
     return (
@@ -13,26 +17,26 @@ function StudentGameDetails() {
         <FillGame />
       </div>
     )
-  } else if (gameType === "wordhunt") {
+  } else if (gameType === "WordHunt") {
     return (
       <div>
-        helllo
+        <WordHuntGame />
       </div>
     );
-  } else if (gameType === "matchthecoloum") {
+  } else if (gameType === "matchTheColoum") {
     return (
       <div>
-        hello
+        <GameThree />
       </div>
     );
   } else if (gameType === "Quiz") {
     return (
       <QuizGameTwo />
     );
-  } else if (gameType === "draganddrop") {
+  } else if (gameType === "dragAndDrop") {
     return (
       <div>
-        hello
+        <DndElemet />
       </div>
     );
   }

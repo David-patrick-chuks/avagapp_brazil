@@ -3,7 +3,8 @@ import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import Confetti from "react-confetti";
-const GameTwo = () => {
+import { Dialog } from '@material-tailwind/react';
+const DndElemet = () => {
   const [score, setScore] = useState(0);
   const [progress, setProgress] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -27,11 +28,13 @@ const GameTwo = () => {
 
   const getRandomGradient = () => {
     const gradients = [
-      'bg-gradient-to-r from-pink-500 to-yellow-500',
-      'bg-gradient-to-r from-green-400 to-blue-500',
-      'bg-gradient-to-r from-purple-500 to-indigo-500',
-      'bg-gradient-to-r from-red-500 to-orange-500',
-      'bg-gradient-to-r from-teal-400 to-cyan-500',
+      'bg-gradient-to-r from-blue-500 to-blue-600',
+      'bg-gradient-to-tr from-blue-500 to-blue-600',
+      'bg-gradient-to-r from-blue-500 to-blue-600',
+      'bg-gradient-to-bl from-blue-500 to-blue-600',
+      'bg-gradient-to-r from-blue-500 to-blue-600',
+      'bg-gradient-to-r from-blue-500 to-blue-600',
+      
     ];
     const randomIndex = Math.floor(Math.random() * gradients.length);
     return gradients[randomIndex];
@@ -63,7 +66,7 @@ const GameTwo = () => {
     return (
       <div
         ref={drag}
-        className={`cursor-pointer p-4 rounded-lg text-white text-center transition duration-200 transform ${
+        className={`cursor-pointer p-4 rounded-lg h-32 text-3xl flex justify-center items-center font-bold text-white text-center transition duration-200 transform ${
             isDragging || isUsed ? 'opacity-50 bg-gray-400' : gradientClass
           }`}
         onMouseDown={onDragStart}
@@ -85,12 +88,12 @@ const GameTwo = () => {
     return (
       <div
         ref={drop}
-        className={`p-6 rounded-lg text-center shadow-md border-2 border-blue-500 ${
+        className={`p-6 rounded-lg text-center cursor-pointer  h-32  flex justify-center items-center font-bold text-4xl shadow-md border-2 border-blue-500 ${
           isOver ? 'border-yellow-500' : ''
         } ${currentAnswer ? 'bg-blue-200' : 'bg-white'}`}
         onClick={() => onClick(currentAnswer)}
       >
-        {currentAnswer ? currentAnswer : 'Drop the correct answer here'}
+        {currentAnswer ? currentAnswer : (<h1 className='text-2xl'>Drop the correct answer here</h1>)}
       </div>
     );
   };
@@ -203,33 +206,27 @@ const GameTwo = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-blue-100 p-6">
-        <div className="max-w-2xl bg-white rounded-lg p-8 space-y-6 shadow-lg">
-          <h2 className="text-center text-blue-600 text-2xl mb-4">Phase {phase} - Match the symbol</h2>
-
-          <div className="mb-6">
-            <div className="text-blue-600 mb-2">{currentQuestion?.question}</div>
-          </div>
-
-          <div className="mb-6">
-            <DroppableBox onDrop={handleDrop} currentAnswer={answer} onClick={handleRemoveAnswer} />
-          </div>
-
-          <div className="grid grid-cols-4 gap-4 mb-6">
-            {currentQuestion?.options.map((option, index) => (
-              <DraggableElement
-                key={index}
-                id={index}
-                option={option}
-                isUsed={usedOptions[phase]?.includes(option)}
+      <div className=" flex items-center w-full h-full justify-center  lg:p-6">
+        <div className=" w-full bg-white rounded-lg p-8 space-y-6 ">
+        <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
+            <p className="font-bold lg:text-[20px] text-black">
+              Play and Win{" "}
+              <img
+                src="/student/bulb.png"
+                className="inline-block my-auto"
+                alt=""
               />
-            ))}
-          </div>
+            </p>
 
-          <div className="relative pt-1">
-            <div className="flex mb-2 items-center justify-between">
+            <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
+              Total Score: 0
+            </p>
+          </div>
+      
+      <div className="relative pt-1">
+            {/* <div className="flex mb-2 items-center justify-between">
               <span className="text-blue-600">Progress: {progressPercentage}%</span>
-            </div>
+            </div> */}
             <div className="flex mb-2">
               <div className="w-full bg-gray-200 rounded-full">
                 <div
@@ -242,72 +239,89 @@ const GameTwo = () => {
             </div>
           </div>
 
-          <div className="flex justify-between items-center">
+          <div className="mb-6">
+            <div className="text-blue-600 text-3xl text-center font-semibold mb-2">{currentQuestion?.question}</div>
+          </div>
+
+          <div className="mb-6">
+            <DroppableBox onDrop={handleDrop} currentAnswer={answer} onClick={handleRemoveAnswer} />
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            {currentQuestion?.options.map((option, index) => (
+              <DraggableElement
+                key={index}
+                id={index}
+                option={option}
+                isUsed={usedOptions[phase]?.includes(option)}
+              />
+            ))}
+          </div>
+
+       
+          <div className="flex justify-end -mt-2 items-end w-full">
             <button
               onClick={handleNextPhase}
               disabled={!answer} // Disable if no answer is present
               className={`${
                 !answer ? ' cursor-not-allowed bg-blue-300/50' : 'bg-blue-600 hover:bg-blue-700'
-              } text-white py-2 px-4 rounded`}
+              } text-white py-2 px-8 rounded`}
             >
-              Next Phase
+              Next
             </button>
           </div>
-
           {showModal && (
-            <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-            <Confetti
-              width={window.innerWidth}
-              height={window.innerHeight}
-              tweenDuration={5000}
-              // opacity={0.5}
-              // recycle={false}
-              numberOfPieces={300}
-              // initialVelocityX={5}
-              // initialVelocityY={10}
-              // gravity={0.3}
-              // confettiSource={{ x: window.innerWidth / 2, y: 0 }}
-              // friction={0.99}
-              wind={0.01}
-              // colors={["#FF9800", "#FFC107", "#4CAF50", "#2196F3", "#FF5722"]}
-            />
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
-              <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
-              <p className="mb-4">{`${correctAnswersCount()} out of ${questionsData.length} correct!`}</p>
-              <p className="mb-4">Your Score: {calculateTotalScore()}%</p>
-{/*   
-              <h3 className="font-semibold">Incorrect Answers:</h3>
-              <ul className="list-disc pl-5 mb-4">
-                {results
-                  .filter((result) => !result.isCorrect)
-                  .map((result, index) => (
-                    <li key={index}>
-                      {result.question} <br />
-                      Your answer: <strong>{result.userAnswer}</strong> | Correct
-                      answer: <strong>{result.correctAnswer}</strong>
-                    </li>
-                  ))}
-              </ul>
-   */}
-              <button
-                className="bg-blue-500 text-white py-2 px-4 rounded mr-2"
-                onClick={handleReset}
-              >
-                Play Again
-              </button>
-              <button
-                className="bg-green-500 text-white py-2 px-4 rounded"
-                onClick={shareScore}
-              >
-                Share Score
-              </button>
+        <>
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            tweenDuration={5000}
+            numberOfPieces={300}
+            wind={0.01}
+          />
+          <Dialog
+            open={showModal}
+            handler={handleReset}
+            size="xs"
+            animate={{
+              mount: { scale: 1, y: 0 },
+              unmount: { scale: 0.9, y: -100 },
+            }}
+            className="border-2 border-main-dark"
+            onClick={handleReset}
+          >
+            <div className="2xl:p-[30px]  justify-center items-center font-num w-[100%]  p-4 lg:p-5 flex flex-col gap-[18px] rounded-xl 2xl:rounded-3xl  bg-main-light">
+              <img src="/student/congrat.png" className="w-[30%]" />
+
+              <div className="w-full flex flex-col items-center '">
+                <p className="text-main-dark font-bold text-3xl">
+                  Congratulations
+                </p>
+                <p className="text-xl m-1 text-[#545454] font-semibold">{`${correctAnswersCount()} out of ${questionsData.length} correct!`}</p>
+                <p className="text-center ">
+                  You've now entered into the GRAND PRIZE of 1 bottle of your
+                  choice during tonight's party!...
+                </p>
+              </div>
+              <p className="text-main-dark font-semibold text-2xl ">
+                Your score
+              </p>
+              <p className="text-main-dark font-semibold text-5xl -mt-1">
+                {calculateTotalScore()}
+              </p>
+
+              <p className="cursor-pointer" onClick={shareScore}>
+                <img src="/student/social.png" className="w-28 h-fit" alt="" />
+              </p>
             </div>
-          </div>
-        )}
+          </Dialog>
+        </>
+      )}
+       
         </div>
       </div>
     </DndProvider>
   );
 };
 
-export default GameTwo;
+export default DndElemet;
