@@ -174,10 +174,6 @@ function StudentProfile() {
 
                         ))}
 
-
-
-
-
                         {Object.keys(avatarOptions).map((pieceType) => (
 
                             pieceType !== "accessoriesType" ? (null) : (
@@ -191,26 +187,10 @@ function StudentProfile() {
                                  
                                                     <Piece style={{ width: '150px', height: '50px', }}     pieceType="accessories" pieceSize="80" accessoriesType={option} />
                                                 </div>))}  </div>
-
-                                        {/* <h1>eyebrow</h1>
-                                        <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
-                                            {avatarOptions["eyebrowType"].map((option) => (
-                                                <div onClick={() => updateAvatar("eyebrowType", option)} className={` ${avatarConfig.eyebrowType === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
-                                                    <Piece style={{ width: '150px', height: '50px', }}    pieceType="eyebrows" pieceSize="100" eyebrowType={option} />
-
-                                                </div>))}
-
-                                        </div> */}
                                     </div></TabPanel>)
 
                         ))}
-
-
-
-
-
                         {Object.keys(avatarOptions).map((pieceType) => (
-
                             pieceType !== "clotheType" ? (null) : (
                                 <TabPanel key={pieceType} value={"Nose"}>
                                     {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
@@ -228,9 +208,7 @@ function StudentProfile() {
                                             {avatarOptions["clotheColor"].map((option) => (
                                                 <div onClick={() => updateAvatar("clotheColor", option)} className={` ${avatarConfig.clotheColor === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
                                                     <Piece style={{ width: '150px', height: '50px', }}    pieceType="clothe" pieceSize="80" clotheType={avatarConfig.clotheType} clotheColor={option} />
-
                                                 </div>))}
-
                                         </div>
                                     </div></TabPanel>)
 
@@ -250,15 +228,12 @@ function StudentProfile() {
                                                     <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="80" topType={option} hairColor="Brown" />
                                                 </div>))}  </div>
                                     </div></TabPanel>)
-
                         ))}
                         {Object.keys(avatarOptions).map((pieceType) => (
 
                             pieceType !== "skinColor" ? (null) : (
                                 <TabPanel key={pieceType} value={"Color"}>
-                                    {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="100" topType="LongHairFro" hairColor="Red" /> */}
                                     <div>
-                                        {/* <h1>Skin Color</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions[pieceType].map((option) => (
                                                 <div onClick={() => updateAvatar(pieceType, option)} className={` ${avatarConfig.skinColor === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
@@ -267,13 +242,11 @@ function StudentProfile() {
                                                 </div>))}
 
                                         </div>
-                                        {/* <h1>Hair Color</h1> */}
                                         <div className='grid grid-cols-6 gap-2 place-content-center w-fit'>
                                             {avatarOptions["hairColor"].map((option) => (
                                                 <div onClick={() => updateAvatar("hairColor", option)} className={` ${avatarConfig.hairColor === option ? "border-2 border-black/30 w-full bg-black/30 rounded-xl " : ""} flex object-cover z-50`} key={option} >
 
                                                     <Piece style={{ width: '150px', height: '50px', }}    pieceType="top" pieceSize="200" topType={avatarConfig.topType} hairColor={option} />
-                                                    {/* <Piece style={{ width: '150px', height: '50px', }}    pieceType="skin" pieceSize="80"  /> */}
                                                 </div>))}
 
                                         </div>
@@ -282,10 +255,7 @@ function StudentProfile() {
                         ))}
                     </TabsBody>
                 </Tabs>
-
             </Dialog>
-
-
             <div className='grid  px-3 lg:grid-cols-2 mt-4 gap-5'>
 
                 <label htmlFor="name" className='font-medium text-sm text-black'>Name

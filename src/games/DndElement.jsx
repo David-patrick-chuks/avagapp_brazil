@@ -35,13 +35,40 @@ const DndElemet = () => {
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
 
   const questions = [
-    { question: 'Qual é o símbolo de Carbon?', correctAnswer: 'C', options: ['C', 'Au', 'H', 'Na'] },
-    { question: 'Qual é o símbolo de Gold?', correctAnswer: 'Au', options: ['H', 'Au', 'Na', 'C'] },
-    { question: 'Qual é o símbolo de Hydrogen?', correctAnswer: 'H', options: ['H', 'Na', 'C', 'Au'] },
-    { question: 'Qual é o símbolo de Sodium?', correctAnswer: 'Na', options: ['Na', 'C', 'H', 'Au'] },
-    { question: 'Qual é o símbolo de Oxygen?', correctAnswer: 'O', options: ['O', 'N', 'Fe', 'H'] },
+    { question: 'Qual é o símbolo de Carbono?', correctAnswer: 'C', options: ['C', 'Au', 'H', 'Na'] },
+    { question: 'Qual é o símbolo de Ouro?', correctAnswer: 'Au', options: ['H', 'Au', 'Na', 'C'] },
+    { question: 'Qual é o símbolo de Hidrogênio?', correctAnswer: 'H', options: ['H', 'Na', 'C', 'Au'] },
+    { question: 'Qual é o símbolo de Sódio?', correctAnswer: 'Na', options: ['Na', 'C', 'H', 'Au'] },
+    { question: 'Qual é o símbolo de Oxigênio?', correctAnswer: 'O', options: ['O', 'N', 'Fe', 'H'] },
+    { question: 'Quantos continentes existem na Terra?', correctAnswer: '7', options: ['5', '7', '6', '8'] },
+    { question: 'Qual é o maior oceano do mundo?', correctAnswer: 'Oceano Pacífico', options: ['Oceano Atlântico', 'Oceano Pacífico', 'Oceano Índico', 'Oceano Ártico'] },
+    { question: 'Qual país tem a maior população do mundo?', correctAnswer: 'China', options: ['Índia', 'China', 'Estados Unidos', 'Brasil'] },
+    { question: 'Quem foi o primeiro presidente dos Estados Unidos?', correctAnswer: 'George Washington', options: ['Abraham Lincoln', 'George Washington', 'Thomas Jefferson', 'John Adams'] },
+    { question: 'Em que ano o Brasil proclamou a sua independência?', correctAnswer: '1822', options: ['1822', '1889', '1500', '1930'] },
+    { question: 'Qual é o maior animal terrestre?', correctAnswer: 'Elefante africano', options: ['Girafa', 'Elefante africano', 'Hipopótamo', 'Rinoceronte'] },
+    { question: 'Qual é a capital da França?', correctAnswer: 'Paris', options: ['Paris', 'Londres', 'Madri', 'Berlim'] },
+    { question: 'Quantos estados existem no Brasil?', correctAnswer: '26', options: ['25', '26', '27', '28'] },
+    { question: 'Quem pintou a Mona Lisa?', correctAnswer: 'Leonardo da Vinci', options: ['Michelangelo', 'Leonardo da Vinci', 'Vincent van Gogh', 'Pablo Picasso'] },
+    { question: 'Qual é o nome do maior deserto do mundo?', correctAnswer: 'Deserto da Antártida', options: ['Deserto do Saara', 'Deserto da Antártida', 'Deserto de Gobi', 'Deserto de Kalahari'] },
+    { question: 'Em que cidade nasceu o famoso compositor Beethoven?', correctAnswer: 'Bonn', options: ['Viena', 'Berlim', 'Bonn', 'Londres'] },
+    { question: 'Qual é a moeda oficial do Japão?', correctAnswer: 'Iene', options: ['Yuan', 'Won', 'Iene', 'Dólar'] },
+    { question: 'Qual é a maior montanha do mundo?', correctAnswer: 'Monte Everest', options: ['Monte Everest', 'Monte Kilimanjaro', 'Mont Blanc', 'Aconcágua'] },
+    { question: 'Quem escreveu “Dom Casmurro”?', correctAnswer: 'Machado de Assis', options: ['Machado de Assis', 'José de Alencar', 'Monteiro Lobato', 'Clarice Lispector'] },
+    { question: 'Qual é o rio mais longo do mundo?', correctAnswer: 'Rio Amazonas', options: ['Rio Nilo', 'Rio Amazonas', 'Rio Yangtzé', 'Rio Mississippi'] },
+    { question: 'Em qual continente está localizado o Egito?', correctAnswer: 'África', options: ['Ásia', 'África', 'Europa', 'América'] },
   ];
-
+  function getRandomQuestions(questions, numberOfQuestions = 10) {
+    // Shuffle the questions array using Fisher-Yates algorithm
+    const shuffledQuestions = [...questions];
+    for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+    }
+    
+    // Return the first 5 shuffled questions (or the specified number)
+    return shuffledQuestions.slice(0, numberOfQuestions);
+  }
+  
   const getRandomGradient = () => {
     const gradients = [
       'bg-gradient-to-r from-blue-500 to-blue-600',
@@ -57,7 +84,9 @@ const DndElemet = () => {
   };
 
   useEffect(() => {
-    const shuffledQuestions = [...questions];
+    
+    const selectedQuestions = getRandomQuestions(questions);
+    const shuffledQuestions = [...selectedQuestions];
     shuffledQuestions.sort(() => Math.random() - 0.5);
     setQuestionsData(shuffledQuestions);
   }, []);

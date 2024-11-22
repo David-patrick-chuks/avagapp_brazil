@@ -4,12 +4,22 @@ import { FaRegBell } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { useMobile } from "../../../hook/MobileNav";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export function TNavBar() {
 
 
+  const navigate = useNavigate()
   const location = useLocation()
+
+  const handleNotification = () => {
+    navigate("setting")
+    setBell(prev => !prev)
+  }
+
+  
+  const create = location.pathname.includes("admin")
+
 
   const pathSegments = location.pathname.split('/');
   const check = location.pathname.includes("/student/dashboard")
@@ -19,7 +29,7 @@ export function TNavBar() {
   const {toggleMobile} =useMobile()
     const [bell, setBell] =useState(false)
     return (
-      <div className="px-3 flex shadow justify-between">
+      <div className="px-3 flex shadow relative justify-between">
         <div className="flex text-accent items-center justify-center w-[30%]">
         <CgMenuLeft onClick={toggleMobile} color="black" size={35} className="size-10 lg:hidden block"/>
           <input
@@ -32,15 +42,15 @@ export function TNavBar() {
           <FiSearch size={16} className="text-black/30" />
         </div>
   
-        <div className="flex relative justify-center items-center gap-3">
+        <div className="flex  justify-center items-center gap-3">
         {
-              bell && (  <img src="/teacher/notify.png" className="absolute top-10 -left-16 lg:-left-1 lg:size-56 " />)
+              bell && (  <img src="/teacher/notify.png" onClick={handleNotification} className={`absolute top-10 -right-16 lg:right-[52px] z-50 lg:size-56  ${create ? "hidden" : "block"} `} />)
             }
-          <div className="text-black/50 text-sm gap-1 hidden  lg:flex justify-center items-center">
+          {/* <div className="text-black/50 text-sm gap-1 hidden  lg:flex justify-center items-center">
             <img src="/teacher/logo.svg" className="size-6" />
             <p>Eng (US)</p>
             <IoChevronDownOutline />
-          </div>
+          </div> */}
           <p onClick={() => setBell(prev => !prev)} className="relative p-1 text-main-dark">
             <FaRegBell size={18}/>
             <span className="size-[5px] top-0 right-[2px] absolute bg-red-600  flex rounded-full"></span>

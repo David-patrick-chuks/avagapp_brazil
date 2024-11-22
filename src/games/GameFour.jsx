@@ -28,20 +28,112 @@ const multipleChoiceQuestions = [
     correctAnswer: 'Oxigênio',
     options: ['Ósmio', 'Oxigênio', 'Ouro', 'Prata'],
   },
-  
+  {
+    question: 'Quem pintou a Mona Lisa?',
+    correctAnswer: 'Leonardo da Vinci',
+    options: ['Pablo Picasso', 'Vincent van Gogh', 'Leonardo da Vinci', 'Claude Monet'],
+  },
+  {
+    question: 'Qual é o continente com o maior número de países?',
+    correctAnswer: 'África',
+    options: ['África', 'Ásia', 'Europa', 'América'],
+  },
+  {
+    question: 'Qual é o animal terrestre mais rápido?',
+    correctAnswer: 'Guepardo',
+    options: ['Leão', 'Elefante', 'Guepardo', 'Cavalo'],
+  },
+  {
+    question: 'Qual é a capital da França?',
+    correctAnswer: 'Paris',
+    options: ['Paris', 'Londres', 'Roma', 'Berlim'],
+  },
+  {
+    question: 'Qual é o maior oceano do mundo?',
+    correctAnswer: 'Oceano Pacífico',
+    options: ['Oceano Atlântico', 'Oceano Índico', 'Oceano Pacífico', 'Oceano Ártico'],
+  },
+  {
+    question: 'Em que ano o homem pisou na lua pela primeira vez?',
+    correctAnswer: '1969',
+    options: ['1965', '1969', '1972', '1959'],
+  },
+  {
+    question: 'Qual é o maior país do mundo em área?',
+    correctAnswer: 'Rússia',
+    options: ['China', 'Rússia', 'Estados Unidos', 'Canadá'],
+  },
+  {
+    question: 'Qual é o metal mais precioso?',
+    correctAnswer: 'Ouro',
+    options: ['Prata', 'Ouro', 'Platina', 'Diamante'],
+  },
+  {
+    question: 'Qual é o nome da estrela mais próxima da Terra?',
+    correctAnswer: 'Sol',
+    options: ['Lua', 'Vênus', 'Sol', 'Júpiter'],
+  },
+  {
+    question: 'Qual é a maior floresta tropical do mundo?',
+    correctAnswer: 'Amazônia',
+    options: ['Congo', 'Amazônia', 'Boreal', 'Sumatra'],
+  },
+  {
+    question: 'Qual é o maior rio do mundo?',
+    correctAnswer: 'Rio Amazonas',
+    options: ['Rio Nilo', 'Rio Amazonas', 'Rio Yangtzé', 'Rio Mississipi'],
+  },
+  {
+    question: 'Quem foi o primeiro presidente dos Estados Unidos?',
+    correctAnswer: 'George Washington',
+    options: ['Abraham Lincoln', 'Thomas Jefferson', 'George Washington', 'John Adams'],
+  },
+  {
+    question: 'Qual é o maior deserto do mundo?',
+    correctAnswer: 'Deserto da Antártida',
+    options: ['Deserto do Saara', 'Deserto da Antártida', 'Deserto de Gobi', 'Deserto de Kalahari'],
+  },
+  {
+    question: 'Qual é o maior lago do mundo?',
+    correctAnswer: 'Lago Cáspio',
+    options: ['Lago Superior', 'Lago de Genebra', 'Lago Cáspio', 'Lago Vitória'],
+  },
+  {
+    question: 'Qual é a montanha mais alta do mundo?',
+    correctAnswer: 'Monte Everest',
+    options: ['Monte Kilimanjaro', 'Monte Everest', 'Monte Fuji', 'Monte McKinley'],
+  },
 ];
 
+
 const QuizGameTwo = () => {
+
+  function getRandomQuestions(questions, numberOfQuestions = 10) {
+    // Shuffle the questions array using Fisher-Yates algorithm
+    const shuffledQuestions = [...questions];
+    for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+    }
+    
+    // Return the first 5 shuffled questions (or the specified number)
+    return shuffledQuestions.slice(0, numberOfQuestions);
+  }
+  
+  // Example usage:
+  
+  
   const [questionsData, setQuestionsData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0);
   const [progress, setProgress] = useState(0); // Progress state
-
+  
   useEffect(() => {
     // Shuffle questions initially
-    const shuffledQuestions = [...multipleChoiceQuestions].sort(() => Math.random() - 0.5);
+    const selectedQuestions = getRandomQuestions(multipleChoiceQuestions);
+    const shuffledQuestions = [...selectedQuestions].sort(() => Math.random() - 0.5);
     setQuestionsData(shuffledQuestions);
   }, []);
 
@@ -57,7 +149,7 @@ const QuizGameTwo = () => {
     }
 
     // Update progress (each question is a percentage of total questions)
-    setProgress(((currentQuestionIndex + 1) / multipleChoiceQuestions.length) * 100);
+    setProgress(((currentQuestionIndex + 1) / 10) * 100);
 
     if (currentQuestionIndex + 1 < questionsData.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -124,7 +216,7 @@ const QuizGameTwo = () => {
           {currentQuestion?.options.map((option) => (
             <div
               key={option}
-              className={`flex items-center  w-full justify-center relative h-full  cursor-pointer p-4 bg-main-light  text-main-dark text-xl lg:text-3xl font-bold rounded-lg mb-2 ${selectedAnswer === option ? 'border-2 border-blue-500' : ''
+              className={`flex items-center  w-full justify-center text-center relative h-full  cursor-pointer p-4 bg-main-light  text-main-dark text-xl lg:text-3xl font-bold rounded-lg mb-2 ${selectedAnswer === option ? 'border-2 border-blue-500' : ''
                 }`}
               onClick={() => handleAnswerSelect(option)}
             >

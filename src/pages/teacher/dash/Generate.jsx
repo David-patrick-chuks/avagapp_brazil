@@ -181,7 +181,7 @@ function Generate() {
                                         <IconButton onClick={() => toogleEdit(index)} variant="text">
                                             <BsThreeDotsVertical className=" rotate-90 h-4 w-4" />
                                         </IconButton>
-                                        <Card onClick={() => toogleEdit(index)} className={` ${identifier === index ? "block" : "hidden"} top-0 -right-5 absolute w-[135px]`}>
+                                        <Card onClick={() => toogleEdit(index)} className={` ${identifier === index ? "block" : "hidden"} ${isLast ? "-top-10" : "top-0"} -right-5 absolute w-[135px]`}>
                                             <List className="w-[120px] text-xs "> <ListItem onClick={handleOpen} className="text-xs w-[120px]  ">
                                                 <ListItemPrefix >
                                                     <RiAiGenerate />

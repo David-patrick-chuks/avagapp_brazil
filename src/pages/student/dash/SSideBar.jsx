@@ -85,10 +85,10 @@ export default function SSideBar() {
         <>
             {
                 mobile && (<><div onClick={toggleMobile} className="w-screen lg:hidden block h-screen bg-opacity-5 z-20 absolute bg-black/50">
-                    
+
                 </div>
-                <IoCloseCircle onClick={() => toggleMobile()} className="size-10 absolute block top-3 right-3 z-50 text-white" />
-            </>)
+                    <IoCloseCircle onClick={() => toggleMobile()} className="size-10 absolute block top-3 right-3 z-50 text-white" />
+                </>)
             }
 
             {
@@ -112,7 +112,7 @@ export default function SSideBar() {
                                             // className={({isActive}) => isActive ? "my-auto flex  p-[10px] rounded-lg  bg-main-dark text-white" : "my-auto flex  p-[10px] rounded-lg  bg-transparent text-black"}
                                             className={` ${pathSegments[3] === hrefSegments[3] && "bg-main-dark text-sm text-white"
                                                 } my-auto flex  p-[10px] text-sm rounded-lg items-center text-black `}
-                                                >
+                                        >
                                             <span >{link.inActive}</span>
                                             <span className="inline  ml-2 ">{link.label}</span>
                                         </NavLink>
@@ -122,8 +122,8 @@ export default function SSideBar() {
                             <div className="flex flex-col gap-1">
                                 {config.map((link, id) => (
                                     <NavLink
-                                    key={id}
-                                    onClick={toggleMobile}
+                                        key={id}
+                                        onClick={toggleMobile}
                                         to={link.path}
                                         className={` ${location.pathname === link.path && "bg-main-dark text-sm text-white"
                                             } my-auto flex  p-[10px] text-sm rounded-lg items-center text-black `}
@@ -136,7 +136,7 @@ export default function SSideBar() {
                         </div>
                     </div>)
             }
-            
+
             <div className={` hidden lg:flex flex-col w-[22%] h-screen bg-bg items-center`}>
                 <div>
                     <img src="/teacher/avag.png" className="size-[110px] " alt="" />

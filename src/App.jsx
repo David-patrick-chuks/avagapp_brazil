@@ -39,6 +39,7 @@ import StudentProfile from './pages/student/dash/StudentProfile'
 import StudentGame from './pages/student/dash/StudentGame'
 import StudentGameDetails from './pages/student/dash/StudentGameDetails'
 import ClassDetails from './pages/student/dash/ClassDetails'
+import StudentRanking from './pages/student/dash/StudentRanking'
 
 function App() {
   return (
@@ -61,7 +62,7 @@ function App() {
             <Route path="student-knowledge/details" element={<ClassOverViewDetails />} />
 
             <Route path="activty" element={<Activity />} />
-            <Route path="student-ranking" element={<Ranking />} />
+            <Route path="student-ranking" element={<StudentRanking />} />
             <Route path="student-profile" element={<StudentProfile />} />
 
             {/* <Route path="student-game/:gameType/:gameCreate" element={<StudentGame />} /> */}

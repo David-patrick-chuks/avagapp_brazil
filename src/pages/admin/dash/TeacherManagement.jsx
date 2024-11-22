@@ -49,40 +49,6 @@ function TeacherManagement() {
                 {/* <p onClick={handleOpen} className='flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark'>Adicionar Novo Usuário</p> */}
             </div>
 
-            {/* <Dialog
-                open={open}
-                handler={handleOpen}
-                size="xs"
-                animate={{
-                    mount: { scale: 1, y: 0 },
-                    unmount: { scale: 0.9, y: -100 },
-                }}
-                className="p-3 border-2 border-main-dark"
-            >
-                <h1 className="text-2xl font-num font-bold text-main-dark mb-3">Adicionar Novo Usuário</h1>
-
-                <div className='2xl:p-[30px] font-num w-[100%]  p-4 lg:p-5 flex flex-col gap-[18px] rounded-xl 2xl:rounded-3xl  bg-main-light'>
-
-                <label htmlFor="name" className='font-medium text-lg text-main-dark'>Nome
-                        <input type="email" autoComplete='off' placeholder='Nome' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
-                    </label>
-                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>E-mail
-                        <input type="email" autoComplete='off' placeholder='E-mail' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
-                    </label>
-                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>Função 
-                        <input type="email" autoComplete='off' placeholder='Função ' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
-                    </label>
-                    <label htmlFor="name" className='font-medium text-lg text-main-dark'>Status
-                        <input type="email" autoComplete='off' placeholder='Status' className='text-main-dark/70 lg:mt-[4px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
-                    </label>
-
-                    <p className='bg-main-dark w-[100%] rounded-xl text-center text-white font-bold text-xl mt-2 2xl:text-2xl py-3 cursor-pointer' onClick={handleOpen}>
-                    Adicionar
-                    </p>
-                </div>
-
-            </Dialog> */}
-
 
             <Card className="h-full lg:overflow-hidden overflow-x-scroll   w-full  px-6">
                 <table className="w-full min-w-max table-auto text-left">
@@ -167,7 +133,7 @@ function TeacherManagement() {
                                         <IconButton onClick={() => toogleEdit(index)} variant="text">
                                             <BsThreeDotsVertical className=" rotate-90 h-4 w-4" />
                                         </IconButton>
-                                        <Card onClick={() => toogleEdit(index)} className={` ${identifier === index ? "block" : "hidden"} top-0 right-16 absolute w-[135px]`}>
+                                        <Card onClick={() => toogleEdit(index)} className={` ${identifier === index ? "block" : "hidden"} ${isLast ? "-top-20" : "top-0"} right-16 absolute w-[135px]`}>
                                             <List className="w-[120px] text-xs "> <ListItem className="text-xs w-[120px]  ">
                                                 <ListItemPrefix >
                                                     <IoEyeOutline />

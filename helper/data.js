@@ -109,6 +109,7 @@ export const adminData = [
 
 export const TABLE_ROWS = [
   {
+    id: 1,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -125,6 +126,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 2,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -141,6 +143,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 3,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -157,6 +160,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 4,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -173,6 +177,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 5,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -189,6 +194,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 6,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -205,6 +211,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 7,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -221,6 +228,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 8,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -237,6 +245,7 @@ export const TABLE_ROWS = [
     activity: "Teacher",
   },
   {
+    id: 9,
     medal: "87,343",
     pun: "69",
     desemp: "90%",
@@ -253,6 +262,7 @@ export const TABLE_ROWS = [
     Turma: "7th",
   },
   {
+    id: 10,
     medal: "87,343",
     pun: "69",
     desemp: "90%",

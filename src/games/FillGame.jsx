@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Dialog } from "@material-tailwind/react";
 import Confetti from "react-confetti";
+
 const questionsData = [
   {
     question: "As plantas precisam de água, luz solar e ___ para sobreviver.",
@@ -22,10 +23,62 @@ const questionsData = [
     question: "O som viaja mais rápido em ___ (sólido, líquido, gasoso).",
     answer: "sólido",
   },
+  {
+    question: "A luz viaja mais rápido no ___ (vácuo, água, ar).",
+    answer: "vácuo",
+  },
+  {
+    question: "O gás que respiramos em maior quantidade é ___.",
+    answer: "nitrogênio",
+  },
+  {
+    question: "O nome do maior oceano do planeta é ___.",
+    answer: "oceano pacífico",
+  },
+  {
+    question: "Os diamantes são formados principalmente por ___.",
+    answer: "carbono",
+  },
+  {
+    question: "O nosso sistema solar é composto por 8 ___.",
+    answer: "planetas",
+  },
+
+  {
+    question: "O sol é uma ___.",
+    answer: "estrela",
+  },
+  {
+    question: "O metal mais abundante na crosta terrestre é ___.",
+    answer: "alumínio",
+  },
+  {
+    question: "O principal gás responsável pelo efeito estufa é ___.",
+    answer: "dióxido de carbono",
+  },
+  {
+    question: "O processo de mudança da água de estado líquido para sólido é chamado de ___.",
+    answer: "congelamento",
+  },
+  
 ];
 
 
+
 function FillGame() {
+
+  function getRandomQuestions(questions, numberOfQuestions = 10) {
+    // Shuffle the questions array using Fisher-Yates algorithm
+    const shuffledQuestions = [...questions];
+    for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+    }
+    
+    // Return the first 5 shuffled questions (or the specified number)
+    return shuffledQuestions.slice(0, numberOfQuestions);
+  }
+  
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
@@ -42,8 +95,10 @@ function FillGame() {
   };
 
   useEffect(() => {
-    const shuffledQuestions = questionsData.sort(() => 0.5 - Math.random());
-    setQuestions(shuffledQuestions.slice(0, 5));
+    const selectedQuestions = getRandomQuestions(questionsData);
+
+    const shuffledQuestions = selectedQuestions.sort(() => 0.5 - Math.random());
+    setQuestions(shuffledQuestions.slice(0, 10));
   }, []);
 
   const handleChange = (e) => {
@@ -101,9 +156,10 @@ function FillGame() {
     setProgress(0);
     setShowModal(false);
     setOpen((prev) => !prev);
+    const selectedQuestions = getRandomQuestions(questionsData);
 
-    const shuffledQuestions = questionsData.sort(() => 0.5 - Math.random());
-    setQuestions(shuffledQuestions.slice(0, 5));
+    const shuffledQuestions = selectedQuestions.sort(() => 0.5 - Math.random());
+    setQuestions(shuffledQuestions.slice(0, 10));
   };
 
   const correctAnswersCount = results.filter(

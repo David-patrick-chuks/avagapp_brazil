@@ -20,12 +20,11 @@ const HTML5toTouch = {
     },
   ],
 };
-
 const reorderQuestions = [
   {
     question: 'Arrume os planetas pela distância do Sol (do mais próximo ao mais distante)',
-    correctOrder: ['Mercúrio', 'Vênus', 'Terra', 'Marte'],
-    options: ['Terra', 'Vênus', 'Marte', 'Mercúrio'],
+    correctOrder: ['Mercúrio', 'Vênus', 'Terra', 'Marte', 'Júpiter', 'Saturno', 'Urano', 'Netuno'],
+    options: ['Terra', 'Vênus', 'Marte', 'Mercúrio', 'Júpiter', 'Saturno', 'Urano', 'Netuno'],
   },
   {
     question: 'Ordene esses números do menor para o maior',
@@ -39,18 +38,110 @@ const reorderQuestions = [
   },
   {
     question: 'Ordene essas cores pela longitude de onda (da mais curta para a mais longa)',
-    correctOrder: ['Violeta', 'Azul', 'Verde', 'Vermelho'],
-    options: ['Verde', 'Azul', 'Violeta', 'Vermelho'],
+    correctOrder: ['Violeta', 'Azul', 'Verde', 'Amarelo', 'Laranja', 'Vermelho'],
+    options: ['Verde', 'Azul', 'Violeta', 'Amarelo', 'Laranja', 'Vermelho'],
   },
   {
     question: 'Arrume os seguintes continentes por tamanho (do menor para o maior)',
-    correctOrder: ['Europa', 'Austrália', 'Antártida', 'Ásia'],
-    options: ['Ásia', 'Europa', 'Austrália', 'Antártida'],
+    correctOrder: ['Europa', 'Austrália', 'Antártida', 'Ásia', 'América do Norte', 'América do Sul', 'África'],
+    options: ['Ásia', 'Europa', 'Austrália', 'Antártida', 'América do Norte', 'América do Sul', 'África'],
   },
-  
+  {
+    question: 'Ordene os primeiros cinco presidentes do Brasil em ordem de mandato',
+    correctOrder: ['Deodoro da Fonseca', 'Floriano Peixoto', 'Getúlio Vargas', 'Washington Luís', 'Juscelino Kubitschek'],
+    options: ['Washington Luís', 'Getúlio Vargas', 'Floriano Peixoto', 'Deodoro da Fonseca', 'Juscelino Kubitschek'],
+  },
+  {
+    question: 'Arrume os planetas pela sua quantidade de luas (do menor para o maior)',
+    correctOrder: ['Mercúrio', 'Vênus', 'Terra', 'Marte', 'Netuno', 'Urano', 'Júpiter', 'Saturno'],
+    options: ['Terra', 'Marte', 'Netuno', 'Urano', 'Júpiter', 'Saturno', 'Mercúrio', 'Vênus'],
+  },
+  {
+    question: 'Ordene as fases da lua em ordem cronológica',
+    correctOrder: ['Lua nova', 'Crescente', 'Cheia', 'Minguante'],
+    options: ['Minguante', 'Cheia', 'Crescente', 'Lua nova'],
+  },
+  {
+    question: 'Arrume as estações do ano pela ordem que ocorrem no hemisfério sul',
+    correctOrder: ['Verão', 'Outono', 'Inverno', 'Primavera'],
+    options: ['Inverno', 'Outono', 'Primavera', 'Verão'],
+  },
+  {
+    question: 'Arrume as cores do arco-íris pela ordem correta',
+    correctOrder: ['Vermelho', 'Laranja', 'Amarelo', 'Verde', 'Azul', 'Anil', 'Violeta'],
+    options: ['Azul', 'Amarelo', 'Vermelho', 'Laranja', 'Violeta', 'Anil', 'Verde'],
+  },
+  {
+    question: 'Ordene os planetas do sistema solar por tamanho (do menor para o maior)',
+    correctOrder: ['Mercúrio', 'Marte', 'Vênus', 'Terra', 'Urano', 'Neptuno', 'Saturno', 'Júpiter'],
+    options: ['Terra', 'Vênus', 'Mercúrio', 'Marte', 'Urano', 'Neptuno', 'Saturno', 'Júpiter'],
+  },
+  {
+    question: 'Arrume os primeiros 5 números primos em ordem crescente',
+    correctOrder: ['2', '3', '5', '7', '11'],
+    options: ['5', '2', '11', '7', '3'],
+  },
+  {
+    question: 'Ordene as cinco maiores cidades do Brasil por população (do menor para o maior)',
+    correctOrder: ['Rio de Janeiro', 'Salvador', 'Brasília', 'São Paulo', 'Fortaleza'],
+    options: ['Brasília', 'Fortaleza', 'São Paulo', 'Rio de Janeiro', 'Salvador'],
+  },
+  {
+    question: 'Arrume os continentes pela população (do menor para o maior)',
+    correctOrder: ['Oceania', 'América do Norte', 'Europa', 'América do Sul', 'África', 'Ásia'],
+    options: ['América do Norte', 'América do Sul', 'África', 'Oceania', 'Europa', 'Ásia'],
+  },
+  {
+    question: 'Ordene os estados do Brasil pela quantidade de habitantes (do menor para o maior)',
+    correctOrder: ['Roraima', 'Acre', 'Amapá', 'Maranhão', 'São Paulo'],
+    options: ['São Paulo', 'Amapá', 'Maranhão', 'Acre', 'Roraima'],
+  },
+  {
+    question: 'Arrume as cores das bandeiras dos países do Mercosul por predominância de cor (do menor para o maior)',
+    correctOrder: ['Paraguai', 'Argentina', 'Brasil', 'Uruguai'],
+    options: ['Brasil', 'Uruguai', 'Paraguai', 'Argentina'],
+  },
+  {
+    question: 'Ordene os tipos de rochas em ordem de formação (do mais rápido para o mais lento)',
+    correctOrder: ['Sedimentar', 'Ígnea', 'Metamórfica'],
+    options: ['Metamórfica', 'Sedimentar', 'Ígnea'],
+  },
+  {
+    question: 'Arrume as idades dos presidentes dos Estados Unidos em ordem crescente',
+    correctOrder: ['George Washington', 'Abraham Lincoln', 'Theodore Roosevelt', 'John F. Kennedy'],
+    options: ['Abraham Lincoln', 'John F. Kennedy', 'Theodore Roosevelt', 'George Washington'],
+  },
+  {
+    question: 'Ordene as etapas do ciclo da água em ordem cronológica',
+    correctOrder: ['Evaporação', 'Condensação', 'Precipitação', 'Infiltração'],
+    options: ['Infiltração', 'Precipitação', 'Condensação', 'Evaporação'],
+  },
+  {
+    question: 'Arrume os principais rios do mundo pela extensão (do menor para o maior)',
+    correctOrder: ['Rio Nilo', 'Amazonas', 'Yangtsé', 'Mississippi'],
+    options: ['Yangtsé', 'Amazonas', 'Mississippi', 'Rio Nilo'],
+  },
+  {
+    question: 'Ordene os mares do mundo por tamanho (do menor para o maior)',
+    correctOrder: ['Mar Mediterrâneo', 'Mar do Caribe', 'Mar da China Meridional', 'Mar da Barents'],
+    options: ['Mar da Barents', 'Mar Mediterrâneo', 'Mar do Caribe', 'Mar da China Meridional'],
+  },
 ];
 
 const GameThree = () => {
+  
+  function getRandomQuestions(questions, numberOfQuestions = 10) {
+    // Shuffle the questions array using Fisher-Yates algorithm
+    const shuffledQuestions = [...questions];
+    for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+    }
+    
+    // Return the first 5 shuffled questions (or the specified number)
+    return shuffledQuestions.slice(0, numberOfQuestions);
+  }
+  
   const [questionsData, setQuestionsData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userOrder, setUserOrder] = useState([]);
@@ -60,7 +151,9 @@ const GameThree = () => {
 
   useEffect(() => {
     // Shuffle questions initially
-    const shuffledQuestions = [...reorderQuestions].sort(() => Math.random() - 0.5);
+    
+    const selectedQuestions = getRandomQuestions(reorderQuestions);
+    const shuffledQuestions = [...selectedQuestions].sort(() => Math.random() - 0.5);
     setQuestionsData(shuffledQuestions);
     setUserOrder(shuffledQuestions[0]?.options);
   }, []);
@@ -106,7 +199,7 @@ const GameThree = () => {
     if (isCorrect) setScore(score + 1);
 
     // Update progress (each question is 20% of 100%)
-    setProgress(((currentQuestionIndex + 1) / reorderQuestions.length) * 100);
+    setProgress(((currentQuestionIndex + 1) / 10) * 100);
 
     if (currentQuestionIndex + 1 < questionsData.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);

@@ -60,11 +60,11 @@ export default function TSideBar() {
   ];
 
   const config = [
-    // {
-    //   label: "Setting",
-    //   inActive: <AiFillSetting />,
-    //   path: "/teacher/dashboard/setting",
-    // },
+    {
+      label: "Setting",
+      inActive: <AiFillSetting />,
+      path: "/teacher/dashboard/setting",
+    },
     {
       label: "Sair",
       inActive: <IoLogOut />,

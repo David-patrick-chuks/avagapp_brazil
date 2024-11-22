@@ -50,11 +50,11 @@ export default function ASideBar() {
   ];
 
   const config = [
-    // {
-    //   label: "Setting",
-    //   inActive: <AiFillSetting />,
-    //   path: "/admin/dashboard/setting",
-    // },
+    {
+      label: "Setting",
+      inActive: <AiFillSetting />,
+      path: "/admin/dashboard/setting",
+    },
     {
       label: "Sair",
       inActive: <IoLogOut />,
