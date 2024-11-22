@@ -5,7 +5,7 @@ function Game3() {
         <div className='pb-10'>
             <div className="  flex gap-5  w-full mb-3 lg:p-2 lg:justify-start justify-start items-center text-white">
                 {/* <p className="font-bold lg:text-[20px] text-black">
-                    Create Game
+                    Criar jogo
                     <img
                         src="/student/bulb.png"
                         className="inline-block my-auto"
@@ -14,7 +14,7 @@ function Game3() {
                 </p> */}
 
                 <p className="flex cursor-pointer p-[10px] items-center rounded-2xl gap-2 bg-main-dark">
-                    Game title
+                Arraste e Solte
                 </p>
             </div>
             {[1, 2, 3, 4, 5].map((opt) => (
@@ -24,12 +24,12 @@ function Game3() {
                     <p className="text-2xl  text-start capitalize font-bold text-black my-4">
                      
                      <div className='flex justify-between items-center'>
-                     <span>Question {opt}</span>
-                     <span className='font-medium mb-2 text-lg'>Answer  <input type="text" autoComplete='off' placeholder='Answer' className='text-main-dark/70 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-[100%] py-3 2xl:py-4' id='name' /></span>
+                     <span>Pergunta {opt}</span>
+                     <span className='font-medium mb-2 text-lg'>Resposta  <input type="text" autoComplete='off' placeholder='Resposta' className='text-main-dark/70 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-[100%] py-3 2xl:py-4' id='name' /></span>
                      </div>
                      
                      <div className='flex p-10 rounded-lg bg-main-light justify-center items-center'>
-                     <input type="text" autoComplete='off' placeholder='Question' className='text-main-dark/70 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
+                     <input type="text" autoComplete='off' placeholder='Pergunta' className='text-main-dark/70 lg:mt-[10px] mt-[7px] 2xl:px-[18px] lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-main-dark/70 border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
 
                      </div>
                     </p>
@@ -42,7 +42,7 @@ function Game3() {
 
                             >
                                 <span>  <textarea
-                                    style={{ resize: "none" }} rows={2} type="text" autoComplete='off' placeholder='option' className='text-[#545454]  2xl:px-[18px] mt-2 lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-[#545454]  bg-transparent border-2 outline-none border-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' /></span>
+                                    style={{ resize: "none" }} rows={2} type="text" autoComplete='off' placeholder='Opção' className='text-[#545454]  2xl:px-[18px] mt-2 lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-[#545454]  bg-transparent border-2 outline-none border-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' /></span>
                                 {/* <span className="absolute right-0 top-0">
                 <Checkbox
                   ripple={false}
@@ -55,7 +55,7 @@ function Game3() {
                 </div>
             ))}
              <p className='capitalize w-full p-3 rounded-lg bg-main-dark text-white text-center mt-5'>
-                create game
+                Criar jogo
             </p>
         </div>
     )
