@@ -163,11 +163,11 @@ function TSetting() {
             <div className={`p-4 flex flex-col gap-5 divide-y rounded-md  ${create ? "flex" : "hidden"} `}>
               <label htmlFor="name" className='font-medium text-base text-black'>Notifications
                 <textarea
-                  style={{ resize: "none" }} rows={6} type="text" autoComplete='off' placeholder='Notificações details' className='text-[#545454]  2xl:px-[18px] mt-2 lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-[#545454] border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
+                  style={{ resize: "none" }} rows={6} type="text" autoComplete='off' placeholder='Detalhes da notificação' className='text-[#545454]  2xl:px-[18px] mt-2 lg:px-[10px] px-[7px] 2xl:placeholder:text-base lg:placeholder:text-sm text-sm 2xl:text-base placeholder:text-[#545454] border-none active:border-none outline-none bg-input rounded-lg 2xl:rounded-xl w-full py-3 2xl:py-4' id='name' />
               </label>
 
               <p className='capitalize w-full p-3 rounded-lg bg-main-dark text-white text-center mt-5'>
-                publish notifications
+                Publicar notificações
               </p>
             </div>
           </>
