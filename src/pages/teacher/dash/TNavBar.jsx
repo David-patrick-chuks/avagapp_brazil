@@ -8,7 +8,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export function TNavBar() {
 
-
   const navigate = useNavigate()
   const location = useLocation()
 
