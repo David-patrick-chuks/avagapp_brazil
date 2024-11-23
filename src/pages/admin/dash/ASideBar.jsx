@@ -51,7 +51,7 @@ export default function ASideBar() {
 
   const config = [
     {
-      label: "Setting",
+      label: "Configurações",
       inActive: <AiFillSetting />,
       path: "/admin/dashboard/setting",
     },

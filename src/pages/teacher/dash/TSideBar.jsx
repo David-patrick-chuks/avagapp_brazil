@@ -61,7 +61,7 @@ export default function TSideBar() {
 
   const config = [
     {
-      label: "Setting",
+      label: "Configurações",
       inActive: <AiFillSetting />,
       path: "/teacher/dashboard/setting",
     },
