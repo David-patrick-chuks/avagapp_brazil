@@ -48,7 +48,7 @@ export function TNavBar() {
             <p>Eng (US)</p>
             <IoChevronDownOutline />
           </div> */}
-          <p onClick={() => setBell(prev => !prev)} className={`relative p-1 text-main-dark `}>
+          <p onClick={() => setBell(prev => !prev)} className={`relative p-1 text-main-dark $`}>
             <FaRegBell size={18}/>
             <span className="size-[5px] top-0 right-[2px] absolute bg-red-600  flex rounded-full"></span>
            
