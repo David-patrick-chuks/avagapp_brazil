@@ -85,7 +85,6 @@ function App() {
             <Route path="teacher-management" element={<TeacherManagement />} />
             {/* <Route path="knowledge" element={<AdminKnowledge />} /> */}
             <Route path="knowledge" element={<Knowledge />} />
-            
             <Route path="knowledge/Know-details" element={<ClassOverViewDetails />} />
             <Route path="ranking" element={<AdminRanking />} />
 
