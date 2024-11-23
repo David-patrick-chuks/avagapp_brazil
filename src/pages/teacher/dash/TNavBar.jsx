@@ -15,10 +15,8 @@ export function TNavBar() {
     navigate("setting")
     setBell(prev => !prev)
   }
-
   
   const create = location.pathname.includes("admin")
-
 
   const pathSegments = location.pathname.split('/');
   const check = location.pathname.includes("/student/dashboard")
