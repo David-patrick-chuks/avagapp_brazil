@@ -41,7 +41,7 @@ export function TNavBar() {
   
         <div className="flex  justify-center items-center gap-3">
         {
-              bell && (  <img src="/teacher/notify.png" onClick={handleNotification} className={`absolute top-10 right-16 lg:right-[52px] z-50 lg:size-56  ${create ? "hidden" : "block"} `} />)
+              bell && (  <img src="/teacher/notify.png" onClick={handleNotification} className={`absolute top-10 right-10 lg:right-[52px] z-50 lg:size-56  ${create ? "hidden" : "block"} `} />)
             }
           {/* <div className="text-black/50 text-sm gap-1 hidden  lg:flex justify-center items-center">
             <img src="/teacher/logo.svg" className="size-6" />
