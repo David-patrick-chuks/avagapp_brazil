@@ -40,8 +40,8 @@ export default function THome() {
                 </h1>
                 <img src="/teacher/avatar.png" className='size-12' />
             </div>
-            <div className=''>
-                <img src="/teacher/banner.png" className='' />
+            <div className='w-full'>
+                <img src="/teacher/banner.png" className='w-full' />
             </div>
             <div className='grid gap-3  grid-cols-2 lg:grid-cols-4'>
                 {
