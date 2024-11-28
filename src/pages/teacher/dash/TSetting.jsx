@@ -22,20 +22,20 @@ function TSetting() {
 
   const handleSend = () => {
     if (!desp || !title) {
-      return alert("All fields are required");
+      return alert("Todos os campos são obrigatórios");
     }
     setSendNotifyModal(true);
   };
-
+  
   const handlePublish = () => {
     if (!selectedRecipient) {
-      return alert("Please select a user to publish");
+      return alert("Por favor, selecione um usuário para publicar");
     }
     setSendNotifyModal(false);
-    alert(`Notification sent to ${selectedRecipient}`);
-    resetValues()
+    alert(`Notificação enviada para ${selectedRecipient}`);
+    resetValues();
   };
-
+  
 
   const resetValues = () => {
     setDesp(""); // Reset description
@@ -191,6 +191,7 @@ function TSetting() {
               </div>
 
             </div>
+            
             <div className={`p-4 flex flex-col gap-5 divide-y rounded-md  ${create ? "flex" : "hidden"} `}>
               <label htmlFor="name" className='font-medium text-base text-black'>Título da Notificação
                 <input

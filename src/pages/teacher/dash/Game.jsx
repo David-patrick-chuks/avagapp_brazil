@@ -14,7 +14,6 @@ function Game() {
                     ["Quiz","fillInTheBlank","dragAndDrop", "matchTheColoum", "WordHunt"].map((item, index) => (
                         <Link to={`${item}`} key={index} className=' p-3 relative mb-4 flex flex-col gap-1 rounded-xl'>
                             <img src={`/teacher/${item}.png`} alt="" />
-                          
                         </Link>
                     ))
                 }
