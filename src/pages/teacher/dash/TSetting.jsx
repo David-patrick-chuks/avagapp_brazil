@@ -208,69 +208,69 @@ function TSetting() {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                   <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
                     <h2 className="text-lg font-bold mb-4">Selecionar Destinatário</h2>
-               <div className='flex flex-col gap-3'>
+                    <div className='flex flex-col gap-3'>
 
-               <Radio
-                      color="blue"
-                      type="radio"
-                      name="recipient"
-                      value="Professor"
-                      onChange={(e) => setSelectedRecipient(e.target.value)}
-                      label={
-                        <div>
-                          <Typography color="blue-gray" className="font-semibold">
-                            Professor
-                          </Typography>
-                          <Typography variant="small" color="gray" className="font-normal">
-                            A notificação será enviada apenas para professores
-                          </Typography>
-                        </div>
-                      }
-                      containerProps={{
-                        className: "-mt-5",
-                      }}
-                    />
-                    <Radio
-                      color="blue"
-                      type="radio"
-                      name="recipient"
-                      value="Estudante"
-                      onChange={(e) => setSelectedRecipient(e.target.value)}
-                      label={
-                        <div>
-                          <Typography color="blue-gray" className="font-semibold">
-                            Estudante
-                          </Typography>
-                          <Typography variant="small" color="gray" className="font-normal">
-                            A notificação será enviada apenas para estudantes
-                          </Typography>
-                        </div>
-                      }
-                      containerProps={{
-                        className: "-mt-5",
-                      }}
-                    />
-                    <Radio
-                      color="blue"
-                      type="radio"
-                      name="recipient"
-                      value="Ambos Professor e Estudante"
-                      onChange={(e) => setSelectedRecipient(e.target.value)}
-                      label={
-                        <div>
-                          <Typography color="blue-gray" className="font-semibold">
-                            Ambos
-                          </Typography>
-                          <Typography variant="small" color="gray" className="font-normal">
-                            A notificação será enviada para professores e estudantes
-                          </Typography>
-                        </div>
-                      }
-                      containerProps={{
-                        className: "-mt-5",
-                      }}
-                    />
-               </div>
+                      <Radio
+                        color="blue"
+                        type="radio"
+                        name="recipient"
+                        value="Professor"
+                        onChange={(e) => setSelectedRecipient(e.target.value)}
+                        label={
+                          <div>
+                            <Typography color="blue-gray" className="font-semibold">
+                              Professor
+                            </Typography>
+                            <Typography variant="small" color="gray" className="font-normal">
+                              A notificação será enviada apenas para professores
+                            </Typography>
+                          </div>
+                        }
+                        containerProps={{
+                          className: "-mt-5",
+                        }}
+                      />
+                      <Radio
+                        color="blue"
+                        type="radio"
+                        name="recipient"
+                        value="Estudante"
+                        onChange={(e) => setSelectedRecipient(e.target.value)}
+                        label={
+                          <div>
+                            <Typography color="blue-gray" className="font-semibold">
+                              Estudante
+                            </Typography>
+                            <Typography variant="small" color="gray" className="font-normal">
+                              A notificação será enviada apenas para estudantes
+                            </Typography>
+                          </div>
+                        }
+                        containerProps={{
+                          className: "-mt-5",
+                        }}
+                      />
+                      <Radio
+                        color="blue"
+                        type="radio"
+                        name="recipient"
+                        value="Ambos Professor e Estudante"
+                        onChange={(e) => setSelectedRecipient(e.target.value)}
+                        label={
+                          <div>
+                            <Typography color="blue-gray" className="font-semibold">
+                              Ambos
+                            </Typography>
+                            <Typography variant="small" color="gray" className="font-normal">
+                              A notificação será enviada para professores e estudantes
+                            </Typography>
+                          </div>
+                        }
+                        containerProps={{
+                          className: "-mt-5",
+                        }}
+                      />
+                    </div>
 
                     <div className="flex justify-end mt-3 gap-3">
                       <button
