@@ -51,9 +51,7 @@ export function TNavBar() {
           <p onClick={() => setBell(prev => !prev)} className={`relative p-1 text-main-dark ${create ? "hidden" : "block"}`}>
             <FaRegBell size={18}/>
             <span className="size-[5px] top-0 right-[2px] absolute bg-red-600  flex rounded-full"></span>
-           
-          </p>
-         
+          </p>         
           <Link to={ check && "student-profile"} className="text-black/50  text-sm gap-1 flex justify-center items-center">
             <img src="/teacher/doc.png" className="size-6" />
             <p>Musfiq</p>

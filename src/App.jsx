@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import ErrorPage from './ErrorPage'
@@ -103,7 +104,7 @@ function App() {
 
         <Route path='/teacher' >
           <Route index element={<Signup />} />
-          <Route  path="signup" element={<Login />} />
+          <Route path="signup" element={<Login />} />
           <Route path="forgot-password" element={<Forgotpassword />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="verify-otp" element={<Otp />} />
