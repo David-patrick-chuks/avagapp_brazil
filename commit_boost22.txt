@@ -626,3 +626,5 @@ Boost Commit #625
 Boost Commit #626
 Boost Commit #627
 Boost Commit #628
+Boost Commit #629
+Boost Commit #630
