@@ -99,7 +99,7 @@ function TSetting() {
 
               </ul>
             </div>
-            <div className={`flex flex-col p-2 ${create ? "hidden" : "flex"}`}>
+            {/* <div className={`flex flex-col p-2 ${create ? "hidden" : "flex"}`}>
               <header className='flex font-semibold text-lg'>Suporte e Feedback
 
 
@@ -155,7 +155,7 @@ function TSetting() {
                 </div>
 
               </ul>
-            </div>
+            </div> */}
 
             <Link to={"/student/dashboard"} className='p-2 bg-white text-main-dark rounded-full lg:hidden absolute bottom-4 left-4 size-12 shadow-md flex justify-center items-center'>
 
